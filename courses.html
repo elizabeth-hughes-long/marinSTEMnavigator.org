@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>University Course Navigator — marinSTEMnavigator.org</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -17,8 +19,12 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .navbar-links a:hover{color:var(--stem-cyan)}
 .navbar-links .nav-cta{background:transparent;border:1px solid rgba(155,93,229,0.4);color:var(--stem-purple);padding:5px 14px;border-radius:20px}
 .navbar-links .nav-cta:hover{background:rgba(155,93,229,0.12)}
-.page-hero{background:linear-gradient(135deg,#0d1829 0%,#1a1040 60%,#2a1560 100%);color:white;padding:3.5rem 2rem 3rem;text-align:center;border-bottom:2px solid var(--stem-purple)}
+.page-hero{background:linear-gradient(135deg,#0d1829 0%,#1a1040 60%,#2a1560 100%);position:relative;overflow:hidden;color:white;padding:3.5rem 2rem 3rem;text-align:center;border-bottom:2px solid var(--stem-purple)}
 .page-hero-inner{max-width:700px;margin:0 auto}
+.page-hero-img{position:absolute;left:0;top:0;bottom:0;width:35%;background-image:url(hero.jpg);background-size:cover;background-position:center;z-index:0}
+.page-hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,16,64,0) 0%,rgba(26,16,64,0.7) 60%,rgba(26,16,64,1) 100%)}
+.page-hero-inner{position:relative;z-index:1;padding-left:38%}
+@media(max-width:768px){.page-hero-img{display:none}.page-hero-inner{padding-left:0}}
 .page-hero .eyebrow{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--stem-purple);border:1px solid rgba(155,93,229,0.4);padding:4px 14px;border-radius:20px;margin-bottom:1rem}
 .page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:0.75rem}
 .page-hero p{font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.7;max-width:600px;margin:0 auto}
@@ -93,7 +99,7 @@ footer a:hover{color:white}
 </nav>
 
 <div class="page-hero">
-<div class="page-hero-inner">
+<div class="page-hero-img"></div><div class="page-hero-inner">
 <span class="eyebrow">University Course Navigator</span>
 <h1>Real College Courses. Free or Low Cost.</h1>
 <p>Top universities now publish their actual course content online. These are the same lectures, problem sets, and exams used at MIT, Harvard, Stanford, and Berkeley. Used right, they can strengthen your college application and build real skills.</p>
@@ -399,4 +405,4 @@ footer a:hover{color:white}
 
 </body>
 </html>
-Add University Course Navigator page
+Add hero visual to courses page
