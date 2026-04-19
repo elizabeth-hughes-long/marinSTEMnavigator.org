@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marin STEM Navigator — marinSTEMnavigator.org</title>
 <meta name="description" content="Free resource connecting Marin County students to STEM opportunities, internships, competitions, and programs. Built by a student, for students. marinSTEMnavigator.org">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -21,11 +21,11 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .navbar-links .nav-cta{background:transparent;border:1px solid rgba(46,184,232,0.4);color:var(--stem-cyan);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;text-decoration:none;transition:all 0.15s}
 .navbar-links .nav-cta:hover{background:rgba(46,184,232,0.12);border-color:var(--stem-cyan)}
 @media(max-width:640px){.navbar-links .nav-label{display:none}.navbar{padding:0.5rem 1rem}.navbar-links .nav-cta{font-size:11px;padding:4px 10px}.navbar-links .nav-cta .cta-full{display:none}.navbar-links .nav-cta .cta-short{display:inline}}
-.hero{position:relative;color:white;overflow:hidden;display:flex;align-items:stretch;background:var(--site-bg);min-height:380px}
-.hero-photo{flex:1 1 50%;background-image:url('hero.jpg');background-size:cover;background-position:center right;background-repeat:no-repeat;position:relative;min-height:380px}
-.hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 60%,rgba(11,31,58,0.7) 82%,rgba(11,31,58,1) 100%)}
-.hero-content-wrap{flex:1 1 50%;display:flex;align-items:center;justify-content:flex-start;padding:2.5rem 3rem 2.5rem 2rem;position:relative;z-index:2;margin-left:-5%}
-.hero-content{max-width:560px}
+.hero{position:relative;color:white;overflow:hidden;background:var(--site-bg);min-height:420px;background-image:url('hero.jpg');background-size:cover;background-position:left center;background-repeat:no-repeat}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 40%,rgba(11,31,58,0.85) 55%,rgba(11,31,58,1) 65%,rgba(11,31,58,1) 100%);z-index:1}
+.hero-photo-spacer{display:none}
+.hero-inner{position:relative;z-index:2;max-width:1400px;margin:0 auto;min-height:420px;display:flex;align-items:center;justify-content:flex-end;padding:3rem 4rem 3rem 2rem}
+.hero-content{max-width:560px;width:100%}
 .hero-eyebrow{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;border:1px solid rgba(232,160,32,0.5);padding:5px 16px;border-radius:20px}
 .hero-wordmark{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(2.2rem,5.5vw,3.8rem);letter-spacing:-0.01em;line-height:1.05;margin-bottom:0}
 .hero-wordmark .wm-marin{color:white}
@@ -36,22 +36,21 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .hero-divider-dot{width:6px;height:6px;border-radius:50%;background:var(--stem-cyan)}
 .hero-tagline{font-size:1rem;color:rgba(255,255,255,0.85);margin-bottom:0.1rem}
 .hero-tagline-accent{font-size:1rem;font-weight:500;color:var(--stem-cyan)}
-.hero-credit{position:absolute;bottom:10px;left:14px;font-size:10px;color:rgba(255,255,255,0.35);z-index:3;letter-spacing:0.04em}
+.hero-credit{position:absolute;bottom:10px;right:14px;font-size:10px;color:rgba(255,255,255,0.35);z-index:3;letter-spacing:0.04em}
 @media(max-width:860px){
-.hero{flex-direction:column;min-height:auto}
-.hero-photo{flex:none;width:100%;height:320px;min-height:320px;background-image:url('hero-mobile.jpg');background-position:center center;background-size:cover}
-.hero-photo::after{background:linear-gradient(180deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 88%,rgba(11,31,58,0.9) 100%)}
-.hero-content-wrap{flex:none;width:100%;padding:2rem 1.5rem 2.5rem;margin-left:0;justify-content:center;text-align:center}
-.hero-content{max-width:100%}
+.hero{background-image:url('hero-mobile.jpg');background-position:center center;min-height:auto;display:flex;flex-direction:column}
+.hero::before{background:linear-gradient(180deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 50%,rgba(11,31,58,0.7) 75%,rgba(11,31,58,1) 100%)}
+.hero-inner{min-height:auto;padding:0;display:block}
+.hero-photo-spacer{display:block;height:320px;width:100%}
+.hero-content{padding:1.5rem 1.5rem 2.5rem;text-align:center;max-width:100%;position:relative;z-index:2;background:var(--site-bg)}
 .hero-divider{justify-content:center}
 .hero-wordmark{font-size:clamp(2.2rem,9vw,3rem);line-height:1.1}
-.hero-wordmark .wm-marin,.hero-wordmark .wm-stem{display:inline}
 .hero-eyebrow{font-size:10px;padding:5px 16px;margin-bottom:1.25rem}
-.hero-credit{bottom:6px;left:10px;font-size:9px}
+.hero-credit{bottom:6px;right:10px;font-size:9px}
 .hero-tagline,.hero-tagline-accent{font-size:1.05rem}
 }
 @media(max-width:480px){
-.hero-photo{height:260px;min-height:260px}
+.hero-photo-spacer{height:260px}
 .hero-wordmark{font-size:2.1rem}
 }
 .mission{background:#0d1829;border-bottom:2px solid var(--stem-cyan);margin:0;padding:1rem 2rem;text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.7}
@@ -179,8 +178,8 @@ footer a:hover{color:white}
 </nav>
 
 <header class="hero">
-<div class="hero-photo"></div>
-<div class="hero-content-wrap">
+<div class="hero-photo-spacer"></div>
+<div class="hero-inner">
 <div class="hero-content">
 <span class="hero-eyebrow">Marin County, California</span>
 <div class="hero-wordmark">
