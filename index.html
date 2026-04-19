@@ -354,5 +354,7 @@ out.innerHTML=html||'<div class="empty"><div class="empty-icon">&#x2315;</div><h
 function renderNational(){const grid=document.getElementById("national-grid");if(!grid)return;let html="";NATIONAL.forEach(item=>{html+='<div class="national-card"><div class="national-card-top"><div class="national-card-name">'+item.name+'</div><span class="national-badge '+item.badge+'">'+item.badgeLabel+'</span></div><div class="national-desc">'+item.desc+'</div><div class="national-meta"><span class="national-tag">'+item.type+'</span><span class="national-tag '+item.costClass+'">'+item.cost+'</span><span class="national-tag">Apply: '+item.apply+'</span></div><a class="national-link" href="'+item.url+'" target="_blank" rel="noopener">Visit website</a></div>'});grid.innerHTML=html}
 render();renderNational();
 </script>
+<!-- GoatCounter analytics - privacy-respecting, no cookies -->
+<script data-goatcounter="https://marinstemnav.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
