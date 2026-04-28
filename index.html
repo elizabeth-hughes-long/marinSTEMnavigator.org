@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marin STEM Navigator — marinSTEMnavigator.org</title>
 <meta name="description" content="Free resource connecting Marin County students to STEM opportunities, internships, competitions, and programs. Built by a student, for students. marinSTEMnavigator.org">
-<link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="canonical" href="https://marinstemnavigator.org/">
+<link rel="alternate" hreflang="en" href="https://marinstemnavigator.org/">
+<link rel="alternate" hreflang="es" href="https://marinstemnavigator.org/es/">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -20,6 +23,10 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .navbar-links a:hover{color:var(--stem-cyan)}
 .navbar-links .nav-cta{background:transparent;border:1px solid rgba(46,184,232,0.4);color:var(--stem-cyan);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;text-decoration:none;transition:all 0.15s}
 .navbar-links .nav-cta:hover{background:rgba(46,184,232,0.12);border-color:var(--stem-cyan)}
+.lang-switch{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
+.lang-switch a{color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.15s}
+.lang-switch a:hover{color:var(--stem-cyan)}
+.lang-switch .lang-active{color:var(--stem-cyan);font-weight:600}
 @media(max-width:640px){.navbar-links .nav-label{display:none}.navbar{padding:0.5rem 1rem}.navbar-links .nav-cta{font-size:11px;padding:4px 10px}.navbar-links .nav-cta .cta-full{display:none}.navbar-links .nav-cta .cta-short{display:inline}}
 .hero{position:relative;color:white;overflow:hidden;background:var(--site-bg);min-height:420px;background-image:url('hero.jpg');background-size:cover;background-position:left center;background-repeat:no-repeat}
 .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 40%,rgba(11,31,58,0.85) 55%,rgba(11,31,58,1) 65%,rgba(11,31,58,1) 100%);z-index:1}
@@ -41,7 +48,7 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .hero{background-image:url('hero-mobile.jpg');background-position:center center;min-height:auto;display:flex;flex-direction:column}
 .hero::before{background:linear-gradient(180deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 50%,rgba(11,31,58,0.7) 75%,rgba(11,31,58,1) 100%)}
 .hero-inner{min-height:auto;padding:0;display:block}
-.hero-photo-spacer{display:block;height:320px;width:100%}
+.hero-photo-spacer{display:block;height:360px;width:100%}
 .hero-content{padding:1.5rem 1.5rem 2.5rem;text-align:center;max-width:100%;position:relative;z-index:2;background:var(--site-bg)}
 .hero-divider{justify-content:center}
 .hero-wordmark{font-size:clamp(2.2rem,9vw,3rem);line-height:1.1}
@@ -50,7 +57,7 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .hero-tagline,.hero-tagline-accent{font-size:1.05rem}
 }
 @media(max-width:480px){
-.hero-photo-spacer{height:260px}
+.hero-photo-spacer{height:300px}
 .hero-wordmark{font-size:2.1rem}
 }
 .mission{background:#0d1829;border-bottom:2px solid var(--stem-cyan);margin:0;padding:1rem 2rem;text-align:center;font-size:0.9rem;color:rgba(255,255,255,0.75);line-height:1.7}
@@ -173,6 +180,7 @@ footer a:hover{color:white}
 <a href="#local" class="nav-label">Local</a>
 <a href="#national" class="nav-label">National</a>
 <a href="courses.html" class="nav-label">Courses</a>
+<span class="lang-switch nav-label"><span class="lang-active">EN</span> · <a href="es/">ES</a></span>
 <a href="mailto:navigate@marinstemnavigator.org" class="nav-cta"><span class="cta-full">Submit a program</span><span class="cta-short" style="display:none">Submit</span></a>
 </div>
 </nav>
@@ -280,7 +288,7 @@ Support with $1
 
 <footer>
 <p>marinSTEMnavigator.org &nbsp;|&nbsp; Built by a Marin student &nbsp;|&nbsp; Updated April 2026 &nbsp;|&nbsp; <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
-<p>Not affiliated with any listed organization.</p>
+<p>Not affiliated with any listed organization. &nbsp;|&nbsp; <a href="es/">Versión en español</a></p>
 </footer>
 <script>
 const OPPORTUNITIES=[
