@@ -45,11 +45,11 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .hero-tagline-accent{font-size:1rem;font-weight:500;color:var(--stem-cyan)}
 .hero-credit{position:absolute;bottom:10px;right:14px;font-size:10px;color:rgba(255,255,255,0.35);z-index:3;letter-spacing:0.04em}
 @media(max-width:860px){
-.hero{background-image:url('hero-mobile.jpg');background-position:center center;min-height:auto;display:flex;flex-direction:column}
-.hero::before{background:linear-gradient(180deg,rgba(11,31,58,0) 0%,rgba(11,31,58,0) 50%,rgba(11,31,58,0.7) 75%,rgba(11,31,58,1) 100%)}
+.hero{background-image:none;background-color:var(--site-bg);min-height:auto;display:flex;flex-direction:column}
+.hero::before{display:none}
 .hero-inner{min-height:auto;padding:0;display:block}
-.hero-photo-spacer{display:block;height:360px;width:100%}
-.hero-content{padding:1.5rem 1.5rem 2.5rem;text-align:center;max-width:100%;position:relative;z-index:2;background:var(--site-bg)}
+.hero-photo-spacer{display:block;height:360px;width:100%;background-image:url('hero-mobile.jpg');background-size:cover;background-position:center center;background-repeat:no-repeat}
+.hero-content{padding:2rem 1.5rem 2.5rem;text-align:center;max-width:100%;position:relative;z-index:2;background:var(--site-bg)}
 .hero-divider{justify-content:center}
 .hero-wordmark{font-size:clamp(2.2rem,9vw,3rem);line-height:1.1}
 .hero-eyebrow{font-size:10px;padding:5px 16px;margin-bottom:1.25rem}
