@@ -92,8 +92,13 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .age-btn:hover{background:rgba(46,184,232,0.12);color:var(--stem-cyan)}
 .age-btn.active{background:var(--stem-cyan);color:var(--navy);font-weight:700}
 .content{padding:2rem 2rem 4rem;max-width:1200px;margin:0 auto}
-.result-count{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:1.5rem}
+.result-count{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:1.5rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .result-count strong{color:var(--stem-cyan)}
+.clear-filters{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid rgba(255,255,255,0.25);background:transparent;color:rgba(255,255,255,0.7);cursor:pointer;transition:all 0.15s}
+.clear-filters:hover{border-color:var(--stem-cyan);color:var(--stem-cyan)}
+.clear-filters[hidden]{display:none}
+.meta-grades{background:rgba(46,184,232,0.12);color:#1a7fa8}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:3px}
 .age-section{margin-bottom:3rem}
 .age-section-header{display:flex;align-items:center;gap:12px;margin-bottom:1.25rem}
 .age-section-title{font-family:'DM Serif Display',serif;font-size:1.4rem;color:white}
@@ -194,7 +199,7 @@ footer a:hover{color:white}
 <a href="#national" class="nav-label">National</a>
 <a href="courses.html" class="nav-label">Courses</a>
 <span class="lang-switch nav-label"><span class="lang-active">EN</span> · <a href="es/">ES</a></span>
-<a href="mailto:navigate@marinstemnavigator.org" class="nav-cta"><span class="cta-full">Submit a program</span><span class="cta-short">Submit</span></a>
+<a href="mailto:navigate@marinstemnavigator.org" class="nav-cta" aria-label="Submit a program"><span class="cta-full" aria-hidden="true">Submit a program</span><span class="cta-short" aria-hidden="true">Submit</span></a>
 </div>
 </nav>
 
@@ -225,13 +230,13 @@ footer a:hover{color:white}
 <span class="search-icon" aria-hidden="true">&#x2315;</span>
 <input type="text" id="search" aria-label="Search programs, topics, and organizations" placeholder="Search programs, topics, organizations... (marinSTEMnavigator.org)" oninput="render()">
 </div>
-<div class="age-toggle">
-<button class="age-btn active" data-age="all" onclick="setAge(this)">All grades</button>
-<button class="age-btn" data-age="middle" onclick="setAge(this)">Middle school (6-8)</button>
-<button class="age-btn" data-age="early" onclick="setAge(this)">Early HS (9-10)</button>
-<button class="age-btn" data-age="upper" onclick="setAge(this)">Upper HS (11-12)</button>
+<div class="age-toggle" role="group" aria-label="Filter by grade level">
+<button class="age-btn active" data-age="all" aria-pressed="true" onclick="setAge(this)">All grades</button>
+<button class="age-btn" data-age="middle" aria-pressed="false" onclick="setAge(this)">Middle school (6-8)</button>
+<button class="age-btn" data-age="early" aria-pressed="false" onclick="setAge(this)">Early HS (9-10)</button>
+<button class="age-btn" data-age="upper" aria-pressed="false" onclick="setAge(this)">Upper HS (11-12)</button>
 </div>
-<div class="filter-group" id="pill-row"></div>
+<div class="filter-group" id="pill-row" role="group" aria-label="Filter by category"></div>
 </div>
 </div>
 
@@ -320,17 +325,14 @@ const OPPORTUNITIES=[
 {name:"Lawrence Hall of Science - Berkeley",cat:"stem",grades:[6,7,8,9,10,11,12],desc:"Teacher-centered science institution. School programs, science festivals, professional development, and strong classroom instructional materials.",cost:"Low cost",type:"Field trip / teacher resource",url:"https://lawrencehallofscience.org"},
 {name:"SLAC National Accelerator Lab",cat:"stem",grades:[9,10,11,12],desc:"Free guided tours for school groups of 10-25. Public lectures. One of the most impressive real working national lab experiences in the Bay Area.",cost:"Free",type:"Tour / internship",url:"https://www6.slac.stanford.edu/public-tours"},
 {name:"Lawrence Berkeley National Lab - BLAST",cat:"stem",grades:[9,10,11,12],desc:"High school internships and summer research programs at a DOE national lab. Exceptional for college applications and science career pipelines.",cost:"Free",type:"Internship",url:"https://education.lbl.gov"},
-{name:"Stanford Young Investigators",cat:"stem",grades:[9,10,11,12],desc:"Competitive Bay Area high school research internship at Stanford. Calendar the application period early - spots are limited.",cost:"Free",type:"Internship",url:"https://earth.stanford.edu/young-investigators"},
 {name:"Stanford SHTEM - Summer Research",cat:"stem",grades:[10,11,12],desc:"On-site summer research experience at Stanford. Applications open early fall and close quickly.",cost:"Free",type:"Summer program",url:"https://shtem.stanford.edu"},
 {name:"The Tech Interactive - San Jose",cat:"stem",grades:[6,7,8,9,10,11,12],desc:"Engineering, AI, coding, design thinking. Field trips, hands-on lab add-ons, and the Tech Challenge competition (grades 4-12).",cost:"Low cost",type:"Field trip / competition",url:"https://www.thetech.org"},
 {name:"FIRST Robotics Competition",cat:"stem",grades:[9,10,11,12],desc:"Elite team robotics competition with major college scholarships and industry sponsorships. Builds real engineering skills under real constraints.",cost:"Low cost",type:"Competition",url:"https://www.firstinspires.org"},
 {name:"COSMOS - UC System Summer Program",cat:"stem",grades:[9,10,11,12],desc:"Highly competitive UC residential STEM summer program. One of the most prestigious academic summer experiences in California.",cost:"Moderate (aid available)",type:"Summer program",url:"https://cosmos-ucop.ucdavis.edu"},
 {name:"MIT Beaver Works Summer Institute",cat:"stem",grades:[11,12],desc:"Free, highly selective summer program covering aerospace, robotics, and AI. One of the most prestigious STEM summer programs in the country.",cost:"Free",type:"Summer program",url:"https://beaverworks.ll.mit.edu/CMS/bw/bwsi"},
-{name:"Genentech - Student Lab Programs",cat:"biotech",grades:[9,10,11,12],desc:"South San Francisco. Student lab programs, biotechnology outreach, and career exposure events.",cost:"Free",type:"Program / experience",url:"https://www.gene.com/good/giving/corporate-giving/education"},
-{name:"UCSF Science & Health Education",cat:"biotech",grades:[9,10,11,12],desc:"UCSF-affiliated internships, scientist classroom connections, and biomedical career exposure.",cost:"Free",type:"Internship",url:"https://sep.ucsf.edu"},
-{name:"UC Davis Teen Biotech Challenge",cat:"biotech",grades:[9,10,11,12],desc:"Lab-based biotechnology research competition for high school students.",cost:"Low cost",type:"Competition",url:"https://biotech.ucdavis.edu/teen-biotech-challenge"},
+{name:"Genentech Futurelab+ - Biotech Curriculum",cat:"biotech",grades:[9,10,11,12],desc:"Free biotechnology curriculum with classroom labs and industry-aligned lessons, designed for high school teachers. Ask your biology teacher whether your school could adopt it. Genentech's Science Garage and scholarships serve South San Francisco Unified students only.",cost:"Free",type:"Teacher resource",url:"https://www.gene.com/good/giving/programs-volunteerism/futurelab"},
+{name:"UC Davis Teen Biotech Challenge",cat:"biotech",grades:[6,7,8,9,10,11,12],desc:"Online biotechnology poster competition for middle and high school students. Research a biotech topic, explain why it matters, and design a scientific poster for judging. No lab access required. 443 entries in 2026.",cost:"Free",type:"Competition",url:"https://biotech.ucdavis.edu/teen-biotech-challenge"},
 {name:"CyberPatriot - Cybersecurity Competition",cat:"cyber",grades:[6,7,8,9,10,11,12],desc:"Northrop Grumman-sponsored national competition. Used by CAP, Sea Cadets, and JROTC. Leads directly to scholarships and cyber careers.",cost:"Free",type:"Competition",url:"https://www.uscyberpatriot.org"},
-{name:"AI4ALL - AI & Ethics Program",cat:"cyber",grades:[10,11,12],desc:"Bay Area-rooted AI and ethics programs for high-achieving students. Strong focus on underrepresented communities in tech.",cost:"Free",type:"Program",url:"https://ai-4-all.org"},
 {name:"Computer History Museum - Teen Interns",cat:"cyber",grades:[9,10,11,12],desc:"Grades 9-12 volunteer internship at the Mountain View museum. Work with the education team and engage visitors.",cost:"Free",type:"Internship",url:"https://computerhistory.org"},
 {name:"Marine Mammal Center - Sausalito",cat:"environment",grades:[6,7,8,9,10,11,12],desc:"Free Marine Science Sundays. Real working marine mammal hospital and research site - not just a museum.",cost:"Free",type:"Field trip / outreach",url:"https://www.marinemammalcenter.org",marin:true},
 {name:"Bay Model Visitor Center - Sausalito",cat:"environment",grades:[6,7,8,9,10,11,12],desc:"U.S. Army Corps of Engineers site. Ranger-guided tours on Bay hydrology, estuaries, tides, and coastal engineering. Free by reservation.",cost:"Free",type:"Field trip",url:"https://www.spn.usace.army.mil/missions/recreation/bay-model-visitor-center/",marin:true},
@@ -360,19 +362,38 @@ const CATS=[{id:"all",label:"All categories"},{id:"aviation",label:"Aviation & A
 const AGE_GROUPS=[{key:"middle",label:"Middle School",sub:"Grades 6-8",grades:[6,7,8]},{key:"early",label:"Early High School",sub:"Grades 9-10",grades:[9,10]},{key:"upper",label:"Upper High School",sub:"Grades 11-12",grades:[11,12]}];
 let activeCat="all",activeAge="all";
 const pillRow=document.getElementById("pill-row");
-CATS.forEach(c=>{const b=document.createElement("button");b.className="pill cat-"+c.id+(c.id==="all"?" active":"");b.textContent=c.label;b.onclick=()=>{activeCat=c.id;document.querySelectorAll(".pill").forEach(p=>p.classList.remove("active"));b.classList.add("active");render()};pillRow.appendChild(b)});
-function setAge(btn){activeAge=btn.dataset.age;document.querySelectorAll(".age-btn").forEach(b=>b.classList.remove("active"));btn.classList.add("active");render()}
-function matchesFilters(item){const q=document.getElementById("search").value.toLowerCase().trim();const ag=activeAge==="all"?[6,7,8,9,10,11,12]:activeAge==="middle"?[6,7,8]:activeAge==="early"?[9,10]:[11,12];return item.grades.some(g=>ag.includes(g))&&(activeCat==="all"||item.cat===activeCat||(activeCat==="marin"&&item.marin))&&(!q||[item.name,item.desc,item.cat,item.type,item.cost].join(" ").toLowerCase().includes(q))}
+CATS.forEach(c=>{const b=document.createElement("button");b.className="pill cat-"+c.id+(c.id==="all"?" active":"");b.setAttribute("aria-pressed",c.id==="all"?"true":"false");b.textContent=c.label;b.onclick=()=>{activeCat=c.id;document.querySelectorAll(".pill").forEach(p=>{p.classList.remove("active");p.setAttribute("aria-pressed","false")});b.classList.add("active");b.setAttribute("aria-pressed","true");render()};pillRow.appendChild(b)});
+function setAge(btn){activeAge=btn.dataset.age;document.querySelectorAll(".age-btn").forEach(b=>{b.classList.remove("active");b.setAttribute("aria-pressed","false")});btn.classList.add("active");btn.setAttribute("aria-pressed","true");render()}
+function clearFilters(){activeCat="all";activeAge="all";document.getElementById("search").value="";
+document.querySelectorAll(".pill").forEach((p,i)=>{p.classList.toggle("active",i===0);p.setAttribute("aria-pressed",i===0?"true":"false")});
+document.querySelectorAll(".age-btn").forEach((b,i)=>{b.classList.toggle("active",i===0);b.setAttribute("aria-pressed",i===0?"true":"false")});
+render()}
+// Word-aware matching. Queries of 1-2 characters must match a whole word,
+// so "AI" finds artificial intelligence but not "Airport" or "AIM".
+// Longer queries match word beginnings, so "rob" still finds "robotics".
+function wordMatch(hay,q){if(!q)return true;
+const words=hay.toLowerCase().split(/[^a-z0-9+#]+/).filter(Boolean);
+return q.toLowerCase().split(/\s+/).filter(Boolean).every(tok=>
+tok.length<=2?words.some(w=>w===tok):words.some(w=>w.indexOf(tok)===0))}
+function matchesFilters(item){const q=document.getElementById("search").value.trim();const ag=activeAge==="all"?[6,7,8,9,10,11,12]:activeAge==="middle"?[6,7,8]:activeAge==="early"?[9,10]:[11,12];return item.grades.some(g=>ag.includes(g))&&(activeCat==="all"||item.cat===activeCat||(activeCat==="marin"&&item.marin))&&wordMatch([item.name,item.desc,item.cat,item.type,item.cost].join(" "),q)}
 function cc(c){if(!c)return"";if(c.indexOf("Free")===0)return"meta-free";if(c.indexOf("Paid")===0)return"meta-paid";return""}
+function gradeRange(g){const lo=Math.min.apply(null,g),hi=Math.max.apply(null,g);return lo===hi?("Grade "+lo):("Grades "+lo+"-"+hi)}
 const CL={aviation:"Aviation & Aerospace",biotech:"Biotech & Life Science",cyber:"Cyber & CS",environment:"Environment",stem:"STEM & Research",leadership:"Leadership"};
-function render(){const out=document.getElementById("output");const ag=activeAge==="all"?[6,7,8,9,10,11,12]:activeAge==="middle"?[6,7,8]:activeAge==="early"?[9,10]:[11,12];const matched=new Set();let html="";const sects=activeAge==="all"?AGE_GROUPS:AGE_GROUPS.filter(g=>g.grades.some(gr=>ag.includes(gr)));
-sects.forEach(group=>{const items=OPPORTUNITIES.filter(item=>item.grades.some(g=>group.grades.includes(g))&&matchesFilters(item));if(!items.length)return;items.forEach(i=>matched.add(i));
-html+='<div class="age-section"><div class="age-section-header"><div><div class="age-section-title">'+group.label+'</div><div class="age-section-sub">'+group.sub+'</div></div><div class="age-divider"></div><span class="section-count">'+items.length+'</span></div><div class="cards">';
-items.forEach((item,idx)=>{html+='<div class="card'+(item.marin?" marin-card":"")+'" style="animation-delay:'+(idx*30)+'ms"><div class="card-header"><div class="card-name">'+item.name+'</div><span class="badge badge-'+item.cat+'">'+(CL[item.cat]||item.cat)+'</span></div><div class="card-desc">'+item.desc+'</div><div class="card-meta"><span class="meta-tag">'+item.type+'</span><span class="meta-tag '+cc(item.cost)+'">'+item.cost+'</span>'+(item.marin?'<span class="meta-tag meta-marin">Marin local</span>':'')+'</div><a class="card-link" href="'+item.url+'" target="_blank" rel="noopener">Visit website</a></div>'});
-html+='</div></div>'});
-const total=matched.size;document.getElementById("result-count").innerHTML=total>0?'Showing <strong>'+total+'</strong> opportunit'+(total===1?"y":"ies"):"";
-out.innerHTML=html||'<div class="empty"><div class="empty-icon">&#x2315;</div><h3>No results found</h3><p>Try a different search term or clear your filters.</p></div>'}
-function renderNational(){const grid=document.getElementById("national-grid");if(!grid)return;let html="";NATIONAL.forEach(item=>{html+='<div class="national-card"><div class="national-card-top"><div class="national-card-name">'+item.name+'</div><span class="national-badge '+item.badge+'">'+item.badgeLabel+'</span></div><div class="national-desc">'+item.desc+'</div><div class="national-meta"><span class="national-tag">'+item.type+'</span><span class="national-tag '+item.costClass+'">'+item.cost+'</span><span class="national-tag">Apply: '+item.apply+'</span></div><a class="national-link" href="'+item.url+'" target="_blank" rel="noopener">Visit website</a></div>'});grid.innerHTML=html}
+function cardHTML(item,idx){return '<div class="card'+(item.marin?" marin-card":"")+'" style="animation-delay:'+(idx*30)+'ms"><div class="card-header"><h3 class="card-name">'+item.name+'</h3><span class="badge badge-'+item.cat+'">'+(CL[item.cat]||item.cat)+'</span></div><div class="card-desc">'+item.desc+'</div><div class="card-meta"><span class="meta-tag meta-grades">'+gradeRange(item.grades)+'</span><span class="meta-tag">'+item.type+'</span><span class="meta-tag '+cc(item.cost)+'">'+item.cost+'</span>'+(item.marin?'<span class="meta-tag meta-marin">Marin local</span>':'')+'</div><a class="card-link" href="'+item.url+'" target="_blank" rel="noopener">Visit website</a></div>'}
+function render(){const out=document.getElementById("output");
+// Each program is rendered exactly once, regardless of how many grade bands it spans.
+const items=OPPORTUNITIES.filter(matchesFilters);
+let html="";
+if(items.length){
+const group=activeAge==="all"?null:AGE_GROUPS.filter(g=>g.key===activeAge)[0];
+html+='<div class="age-section">';
+if(group){html+='<div class="age-section-header"><div><h2 class="age-section-title">'+group.label+'</h2><div class="age-section-sub">'+group.sub+'</div></div><div class="age-divider"></div><span class="section-count">'+items.length+'</span></div>'}
+html+='<div class="cards">'+items.map(cardHTML).join("")+'</div></div>'}
+const total=items.length;
+const filtered=activeCat!=="all"||activeAge!=="all"||document.getElementById("search").value.trim()!=="";
+document.getElementById("result-count").innerHTML=(total>0?'<span>Showing <strong>'+total+'</strong> opportunit'+(total===1?"y":"ies")+'</span>':'<span></span>')+'<button type="button" class="clear-filters" onclick="clearFilters()"'+(filtered?"":" hidden")+'>Clear filters</button>';
+out.innerHTML=html||'<div class="empty"><div class="empty-icon" aria-hidden="true">&#x2315;</div><h2>No results found</h2><p>Try a shorter search term, or clear your filters.</p></div>'}
+function renderNational(){const grid=document.getElementById("national-grid");if(!grid)return;let html="";NATIONAL.forEach(item=>{html+='<div class="national-card"><div class="national-card-top"><h3 class="national-card-name">'+item.name+'</h3><span class="national-badge '+item.badge+'">'+item.badgeLabel+'</span></div><div class="national-desc">'+item.desc+'</div><div class="national-meta"><span class="national-tag">'+item.type+'</span><span class="national-tag '+item.costClass+'">'+item.cost+'</span><span class="national-tag">Apply: '+item.apply+'</span></div><a class="national-link" href="'+item.url+'" target="_blank" rel="noopener">Visit website</a></div>'});grid.innerHTML=html}
 render();renderNational();
 </script>
 <!-- GoatCounter analytics - privacy-respecting, no cookies -->
