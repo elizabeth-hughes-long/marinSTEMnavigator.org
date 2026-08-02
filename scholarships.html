@@ -1,1 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scholarships — marinSTEMnavigator.org</title>
+<meta name="description" content="Verified scholarships for Marin County students. STEM awards and general local funds, with real deadlines and no application fees.">
+<link rel="canonical" href="https://marinstemnavigator.org/scholarships.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Marin STEM Navigator">
+<meta property="og:title" content="Scholarships — Marin STEM Navigator">
+<meta property="og:description" content="Verified scholarships for Marin County students. STEM awards and general local funds, with real deadlines and no application fees.">
+<meta property="og:url" content="https://marinstemnavigator.org/scholarships.html">
+<meta property="og:image" content="https://marinstemnavigator.org/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Scholarships — Marin STEM Navigator">
+<meta name="twitter:description" content="Verified scholarships for Marin County students. Real deadlines, no application fees.">
+<meta name="twitter:image" content="https://marinstemnavigator.org/hero.jpg">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#080e1a;--navy-mid:#0d1829;--site-bg:#0B1F3A;--stem-cyan:#2eb8e8;--stem-purple:#9b5de5;--gold:#e8a020;--green:#1e7c5a;--green-light:#e4f4ed;--coral:#c94f2a;--coral-light:#faeae4;--marin:#8b3a62;--marin-light:#f5e8ef;--gray-100:#eef0f5;--gray-200:#d8dce8;--gray-400:#8890a8;--gray-600:#4a5268;--gray-800:#181e2e;--radius:12px;--radius-sm:6px;--shadow:0 2px 12px rgba(0,0,0,0.25);--shadow-hover:0 6px 24px rgba(0,0,0,0.35)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);background:var(--site-bg);line-height:1.6;padding-top:56px}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(8,14,26,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(46,184,232,0.15);padding:0.5rem 1.5rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+.navbar-links{display:flex;align-items:center;gap:1.25rem}
+.navbar-links a{font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);text-decoration:none;letter-spacing:0.04em;transition:color 0.15s}
+.navbar-links a:hover{color:var(--stem-cyan)}
+.navbar-links .nav-cta{background:transparent;border:1px solid rgba(46,184,232,0.4);color:var(--stem-cyan);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500;text-decoration:none;transition:all 0.15s}
+.navbar-links .nav-cta:hover{background:rgba(46,184,232,0.12);border-color:var(--stem-cyan)}
+.nav-cta .cta-full{display:inline}
+.nav-cta .cta-short{display:none}
+.lang-switch{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
+.lang-switch a{color:rgba(255,255,255,0.5);text-decoration:none}
+.lang-switch a:hover{color:var(--stem-cyan)}
+.lang-switch .lang-active{color:var(--stem-cyan);font-weight:600}
+.nav-menu{display:flex;align-items:center;gap:1.25rem}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:4px;width:34px;height:30px;padding:6px;background:transparent;border:1px solid rgba(46,184,232,0.4);border-radius:6px;cursor:pointer}
+.nav-toggle span{display:block;height:2px;width:100%;background:var(--stem-cyan);border-radius:2px;transition:transform .2s,opacity .2s}
+.navbar.nav-open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navbar.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.navbar.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:640px){
+.navbar{padding:0.5rem 1rem}
+.navbar-links .nav-cta{font-size:11px;padding:4px 10px}
+.nav-cta .cta-full{display:none}
+.nav-cta .cta-short{display:inline}
+.nav-toggle{display:flex}
+.nav-menu{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:rgba(8,14,26,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(46,184,232,0.25);padding:0.5rem 0;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+.navbar.nav-open .nav-menu{display:flex}
+.nav-menu > a,.nav-menu > .lang-switch{width:100%;padding:0.85rem 1.25rem;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-menu > .lang-switch{border-bottom:none;font-size:13px}
+}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:3px}
+.page-hero{background:linear-gradient(135deg,#0d1829 0%,#123f3a 100%);color:white;padding:3rem 2rem 2.5rem;border-bottom:2px solid var(--green)}
+.page-hero-inner{max-width:900px;margin:0 auto}
+.eyebrow{display:inline-block;font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(232,160,32,0.4);padding:4px 14px;border-radius:20px;margin-bottom:1rem}
+.page-hero h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:0.75rem;line-height:1.15}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.7;max-width:640px}
+.container{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--stem-cyan);text-decoration:none;margin-bottom:1.75rem}
+.back-link:hover{color:white}
+.back-link::before{content:'\2190';font-size:14px}
+.start-here{background:linear-gradient(135deg,#123f3a 0%,#0d2b3d 100%);border:1.5px solid rgba(46,212,160,0.4);border-radius:var(--radius);padding:1.75rem 2rem;margin-bottom:3rem;color:white}
+.start-here .flag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5fe6b8;margin-bottom:0.75rem}
+.start-here h2{font-family:'DM Serif Display',serif;font-size:1.5rem;margin-bottom:0.75rem;color:white}
+.start-here p{font-size:0.93rem;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:1rem}
+.start-here strong{color:#5fe6b8}
+.start-here .facts{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1.25rem}
+.start-here .facts span{font-size:11.5px;padding:4px 11px;border-radius:20px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.9)}
+.start-btn{display:inline-block;background:#2ed4a0;color:#06231b;font-size:14px;font-weight:600;padding:11px 24px;border-radius:var(--radius-sm);text-decoration:none;transition:background 0.2s,transform 0.15s}
+.start-btn:hover{background:#5fe6b8;transform:translateY(-1px)}
+.section-title{font-family:'DM Serif Display',serif;font-size:1.4rem;color:white;margin-bottom:0.4rem}
+.section-sub{font-size:13px;color:rgba(255,255,255,0.55);margin-bottom:1.5rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-bottom:3rem}
+.card{background:white;border-radius:var(--radius);border:1.5px solid var(--gray-100);padding:18px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow);transition:box-shadow 0.2s,border-color 0.2s,transform 0.2s}
+.card:hover{box-shadow:var(--shadow-hover);border-color:var(--gray-200);transform:translateY(-2px)}
+.card.marin-card{border-left:3px solid var(--marin)}
+.card-name{font-size:14.5px;font-weight:600;color:#0d1829;line-height:1.35}
+.card-desc{font-size:12.5px;color:var(--gray-600);line-height:1.55;flex:1}
+.card-meta{display:flex;flex-wrap:wrap;gap:6px}
+.meta-tag{font-size:11px;padding:2px 8px;border-radius:4px;background:var(--gray-100);color:var(--gray-600)}
+.meta-money{background:var(--green-light);color:var(--green);font-weight:600}
+.meta-when{background:#fdf3e0;color:#8a5a00;font-weight:500}
+.meta-marin{background:var(--marin-light);color:var(--marin);font-weight:500}
+.card-foot{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:2px}
+.card-link{display:inline-flex;align-items:center;gap:4px;font-size:12px;font-weight:500;color:var(--stem-cyan);text-decoration:none}
+.card-link:hover{color:var(--navy)}
+.card-link::after{content:'\2197';font-size:11px}
+.card-verified{font-size:10px;color:var(--gray-400);white-space:nowrap}
+.warn{background:rgba(201,79,42,0.14);border-left:3px solid var(--coral);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1.5rem 1.75rem;margin-bottom:2.5rem;color:rgba(255,255,255,0.85)}
+.warn h2{font-family:'DM Serif Display',serif;font-size:1.3rem;color:#f0917a;margin-bottom:0.75rem}
+.warn p{font-size:13px;line-height:1.7;margin-bottom:0.85rem}
+.warn ul{margin:0 0 0.85rem 1.1rem;font-size:13px;line-height:1.75}
+.warn li{margin-bottom:0.35rem}
+.warn strong{color:#f0917a}
+.note{background:rgba(46,184,232,0.1);border-left:3px solid var(--stem-cyan);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1.15rem 1.4rem;font-size:13px;color:rgba(255,255,255,0.82);line-height:1.7;margin-bottom:2.5rem}
+.note strong{color:var(--stem-cyan)}
+.ask{background:var(--navy-mid);border:1px solid rgba(46,184,232,0.2);border-radius:var(--radius);padding:1.75rem 2rem;text-align:center;color:white}
+.ask h2{font-family:'DM Serif Display',serif;font-size:1.3rem;margin-bottom:0.6rem}
+.ask p{font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:1.25rem}
+.ask a{display:inline-block;background:var(--gold);color:var(--navy);font-size:14px;font-weight:500;padding:11px 26px;border-radius:var(--radius-sm);text-decoration:none;transition:background 0.2s,transform 0.15s}
+.ask a:hover{background:#f0b030;transform:translateY(-1px)}
+footer{background:var(--gray-800);color:rgba(255,255,255,0.5);text-align:center;padding:1.5rem;font-size:12px;line-height:1.8}
+footer a{color:rgba(255,255,255,0.65);text-decoration:none}
+footer a:hover{color:white}
+@media(max-width:640px){.container{padding:1.75rem 1rem 3rem}.cards{grid-template-columns:1fr}.page-hero{padding:2.25rem 1.25rem 2rem}.start-here{padding:1.5rem 1.25rem}.warn{padding:1.25rem 1.25rem}}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:white;letter-spacing:0.03em;">Marin STEM Navigator</span>
+<div class="navbar-links">
+<div class="nav-menu" id="nav-menu">
+<a href="index.html">Home</a>
+<a href="index.html#local">Local</a>
+<a href="courses.html">Courses</a>
+<a href="scholarships.html">Scholarships</a>
+<a href="teachers.html">Teachers</a>
+<span class="lang-switch"><span class="lang-active">EN</span> &middot; <a href="es/">ES</a></span>
+</div>
+<a href="mailto:navigate@marinstemnavigator.org" class="nav-cta" aria-label="Submit a program"><span class="cta-full" aria-hidden="true">Submit a program</span><span class="cta-short" aria-hidden="true">Submit</span></a>
+<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<header class="page-hero">
+<div class="page-hero-inner">
+<span class="eyebrow">Money for College</span>
+<h1>Scholarships Marin students can actually get.</h1>
+<p>Every award on this page has been checked against the organization that runs it, not against a scholarship search site. None of them charge a fee to apply. If a deadline has passed, the month it reopens is listed instead.</p>
+</div>
+</header>
+
+<div class="container">
+
+<a href="index.html" class="back-link">Back to opportunities</a>
+
+<div class="start-here">
+<span class="flag">Start here</span>
+<h2>10,000 Degrees: one application, dozens of scholarships</h2>
+<p>If you do one thing on this page, do this one. 10,000 Degrees was founded in 1981 as the Marin Education Fund and now works inside all 12 Marin public high schools and College of Marin. They administer scholarship funds on behalf of many local donors, including the Asian Scholarship Fund.</p>
+<p><strong>Submitting their single application automatically enters you for every scholarship they administer that you qualify for.</strong> You do not hunt for them individually. There is also no GPA requirement, which is unusual and worth knowing if your grades do not reflect what you can do.</p>
+<div class="facts">
+<span>Opens October 15</span>
+<span>Closes March 2</span>
+<span>Up to $1,500 per year</span>
+<span>No GPA minimum</span>
+<span>Financial need required</span>
+</div>
+<p style="font-size:12.5px;color:rgba(255,255,255,0.6);margin-bottom:1.25rem;">Open to students who graduated from or live in Marin, Sonoma, San Francisco, Contra Costa, San Mateo, Santa Clara, Napa, or Lake counties, and who are working toward a first associate's degree, bachelor's degree, or technical certification.</p>
+<a class="start-btn" href="https://10000degrees.org/" target="_blank" rel="noopener">Go to 10,000 Degrees &rarr;</a>
+</div>
+
+<h2 class="section-title">STEM scholarships</h2>
+<div class="section-sub">For students heading into engineering, computing, environmental science, and related fields</div>
+<div class="cards">
+
+<div class="card marin-card">
+<h3 class="card-name">PG&amp;E Better Together STEM Scholarship</h3>
+<div class="card-desc">The largest STEM award on this page, and almost every Marin household qualifies on the residency test because Marin sits inside PG&amp;E's service territory. You apply as a PG&amp;E customer or as the dependent of one. In 2025 PG&amp;E awarded nearly 150 scholarships ranging from $1,000 to $10,000.<br><br>Eligible majors are engineering (electrical, mechanical, industrial, environmental, power and energy), computer science and information systems, cyber security, and environmental sciences. You must plan to enroll full time at a four-year college in California or at an HBCU, pursuing a first undergraduate degree. No GPA requirement.</div>
+<div class="card-meta">
+<span class="meta-tag meta-money">$1,000 to $10,000</span>
+<span class="meta-tag meta-when">Jan 12 to Mar 12</span>
+<span class="meta-tag">HS seniors and up</span>
+<span class="meta-tag meta-marin">Marin qualifies</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://www.pge.com/en/about/educational-resources/grants-and-scholarships.html" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+<div class="card">
+<h3 class="card-name">Gleda M. Estes Scholarship for Young Women in STEM</h3>
+<div class="card-desc">A $3,000 award from the National Association of Rocketry for high school seniors and college freshmen majoring in a STEM field. Established by the Estes family, of Estes rockets. You do not need to be a rocketry competitor to apply, though NAR runs several other scholarships on the same date if you are.</div>
+<div class="card-meta">
+<span class="meta-tag meta-money">$3,000</span>
+<span class="meta-tag meta-when">Deadline June 1</span>
+<span class="meta-tag">HS seniors, women in STEM</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://www.nar.org/educational-resources/awards-and-scholarships/" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+<div class="card">
+<h3 class="card-name">SMART Scholarship-for-Service</h3>
+<div class="card-desc">Not for high schoolers, but worth knowing about early because it changes how you choose a college major. Full tuition plus an annual stipend between $30,000 and $46,000, summer internships, a mentor, and a guaranteed job after graduation. Undergraduate through doctoral. Aerospace and aeronautical engineering are eligible disciplines, along with many others. Applications run August to December. Run by the U.S. Department of War.</div>
+<div class="card-meta">
+<span class="meta-tag meta-money">Full tuition + stipend</span>
+<span class="meta-tag meta-when">Aug to Dec</span>
+<span class="meta-tag">College, not high school</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://dowstem.us/participate/smart/" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+</div>
+
+<h2 class="section-title">General Marin scholarships</h2>
+<div class="section-sub">Not STEM-specific. Tuition is tuition.</div>
+<div class="cards">
+
+<div class="card marin-card">
+<h3 class="card-name">West Marin Scholarship Program</h3>
+<div class="card-desc">For seniors from coastal West Marin and Tomales High School. Unusually, it is renewable: continuing scholars reapply each year on an earlier deadline than first-time applicants. Applications open December 15, first-time applicants are due March 1, and continuing scholars are due February 15. Start lining up your recommendation letters as soon as you decide to apply, because they must arrive by the deadline too.</div>
+<div class="card-meta">
+<span class="meta-tag meta-when">Opens Dec 15, due Mar 1</span>
+<span class="meta-tag">West Marin and Tomales</span>
+<span class="meta-tag">Renewable</span>
+<span class="meta-tag meta-marin">Marin local</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://westmarinscholars.org/" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+<div class="card marin-card">
+<h3 class="card-name">Redwoods Residents Association Scholarship</h3>
+<div class="card-desc">Up to $4,000 for current high school seniors with financial need who also show academic and leadership strength. Requires a one-page autobiography, two letters of recommendation, and a transcript. Note that this one is old-fashioned: the completed application must be delivered as a hard copy, in person or by mail, to the Redwoods Retirement Community front desk. Typed applications preferred. Deadline has fallen in mid-March.</div>
+<div class="card-meta">
+<span class="meta-tag meta-money">Up to $4,000</span>
+<span class="meta-tag meta-when">Mid-March</span>
+<span class="meta-tag">Hard copy only</span>
+<span class="meta-tag meta-marin">Marin local</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://www.marinschools.org/programs-services/programs/college-and-career-readiness-new/school-to-career-stc/resources" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+<div class="card marin-card">
+<h3 class="card-name">College of Marin Foundation Scholarships</h3>
+<div class="card-desc">Many scholarships are available to College of Marin students, whether you are incoming, continuing, or transferring out to a four-year school. Worth knowing: College of Marin states that current and future students can apply for general COM scholarships regardless of national origin or immigration status. Their Transfer and Career Center maintains a separate list, though some of those individual awards do require citizenship or permanent residency, so check each one.</div>
+<div class="card-meta">
+<span class="meta-tag meta-when">Varies</span>
+<span class="meta-tag">College of Marin students</span>
+<span class="meta-tag">No status requirement</span>
+<span class="meta-tag meta-marin">Marin local</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://ss.marin.edu/uss/scholarships" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+<div class="card marin-card">
+<h3 class="card-name">Marin County Retired Employees Scholarship Fund</h3>
+<div class="card-desc">A narrow one, but if it fits you it fits well. Awards go to students attending or planning to attend a university, college, or trade school, with preference given to graduates of a Marin high school who are descendants of Marin County employees. Held at Marin Community Foundation. If a parent or grandparent worked for the county, this is worth a phone call.</div>
+<div class="card-meta">
+<span class="meta-tag meta-when">Annual</span>
+<span class="meta-tag">County employee families</span>
+<span class="meta-tag">College or trade school</span>
+<span class="meta-tag meta-marin">Marin local</span>
+</div>
+<div class="card-foot">
+<a class="card-link" href="https://donationcenter.marincf.org/fund/10" target="_blank" rel="noopener">Visit website</a>
+<span class="card-verified">Checked Aug 2026</span>
+</div>
+</div>
+
+</div>
+
+<div class="warn">
+<h2>How to tell a real scholarship from a fake one</h2>
+<p>Scholarship scams are common, and they target exactly the families who need the money most. Two rules decide almost every case:</p>
+<ul>
+<li><strong>Never pay to apply.</strong> No legitimate scholarship charges an application fee, a processing fee, or a deposit. Not one on this page does.</li>
+<li><strong>The sponsor must exist without the scholarship.</strong> A real award comes from a company, foundation, professional society, or community group that does something else for a living. If the organization's only activity is running the scholarship, walk away.</li>
+</ul>
+<p>Other things that should stop you: being told you have won an award you never applied for, a guarantee that you will win, being asked for a bank account or Social Security number before any award is confirmed, or a site that wants payment for a scholarship search. Free search tools already exist.</p>
+<p>Be careful with scholarship search sites generally. Many are lead-generation businesses that sell your contact information, and some offer their own small "scholarship" as bait to get you to sign up. That is advertising, not aid.</p>
+</div>
+
+<div class="note">
+<strong>Why this page exists.</strong> The Marin County Office of Education has a scholarship resources page. As of August 2026 it was still listing awards with 2023 deadlines. Nobody in this county maintains a current list, so students find out about local money by word of mouth, which means the students with the most connected parents hear about it first. This page is an attempt to fix that, and every entry carries the month it was last checked so you can see how fresh it is.
+</div>
+
+<div class="ask">
+<h2>Know a scholarship I'm missing?</h2>
+<p>Local scholarships are the hardest thing to find and the easiest thing to miss. If your school, employer, church, club, or service organization offers one, tell me and I will verify it and add it.</p>
+<a href="mailto:navigate@marinstemnavigator.org">Email navigate@marinSTEMnavigator.org</a>
+</div>
+
+</div>
+
+<footer>
+<p>marinSTEMnavigator.org &nbsp;|&nbsp; Built by a Marin student &nbsp;|&nbsp; Updated August 2026 &nbsp;|&nbsp; <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
+<p>Not affiliated with any listed organization. &nbsp;|&nbsp; <a href="index.html">Opportunities</a> &nbsp;|&nbsp; <a href="teachers.html">For teachers</a> &nbsp;|&nbsp; <a href="es/">Versión en español</a></p>
+</footer>
+
+<!-- GoatCounter analytics - privacy-respecting, no cookies -->
+<script data-goatcounter="https://marinstemnav.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+// Outbound click tracking for GoatCounter.
+(function(){
+function track(path,title){
+if(window.goatcounter&&window.goatcounter.count){
+window.goatcounter.count({path:path,title:title,event:true});
+}
+}
+document.addEventListener("click",function(e){
+var t=e.target;
+if(!t||!t.closest)return;
+var a=t.closest("a[href]");
+if(!a)return;
+var href=a.getAttribute("href")||"";
+if(href.indexOf("mailto:")===0){track("contact: email (scholarships)","Email contact");return;}
+if(!a.hostname||a.hostname===location.hostname)return;
+if(a.href.indexOf("10000degrees.org")>-1){track("scholarship: 10,000 Degrees","10,000 Degrees");return;}
+var card=a.closest(".card");
+var nameEl=card?card.querySelector(".card-name"):null;
+var label=nameEl?nameEl.textContent.trim():a.hostname;
+track("scholarship: "+label,label);
+});
+})();
+</script>
+<script>
+// Mobile navigation toggle
+(function(){
+var bar=document.querySelector(".navbar"),btn=document.getElementById("nav-toggle"),menu=document.getElementById("nav-menu");
+if(!bar||!btn||!menu)return;
+function setOpen(open){bar.classList.toggle("nav-open",open);btn.setAttribute("aria-expanded",open?"true":"false");btn.setAttribute("aria-label",open?"Close menu":"Open menu");}
+btn.addEventListener("click",function(e){e.stopPropagation();setOpen(!bar.classList.contains("nav-open"));});
+menu.addEventListener("click",function(e){if(e.target.closest("a"))setOpen(false);});
+document.addEventListener("click",function(e){if(bar.classList.contains("nav-open")&&!bar.contains(e.target))setOpen(false);});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(false);});
+})();
+</script>
+</body>
+</html>
 
