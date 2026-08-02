@@ -37,7 +37,7 @@ body{font-family:'DM Sans',sans-serif;font-weight:400;color:var(--gray-800);back
 .lang-switch a{color:rgba(255,255,255,0.5);text-decoration:none}
 .lang-switch a:hover{color:var(--stem-cyan)}
 .lang-switch .lang-active{color:var(--stem-cyan);font-weight:600}
-@media(max-width:640px){.navbar-links .nav-label{display:none}.navbar-links .lang-switch.nav-label{display:inline}.navbar{padding:0.5rem 1rem}.navbar-links .nav-cta{font-size:11px;padding:4px 10px}.nav-cta .cta-full{display:none}.nav-cta .cta-short{display:inline}}
+@media(max-width:640px){.navbar{padding:0.5rem 1rem}.navbar-links .nav-cta{font-size:11px;padding:4px 10px}.nav-cta .cta-full{display:none}.nav-cta .cta-short{display:inline}}
 a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:3px}
 .page-hero{background:linear-gradient(135deg,#0d1829 0%,#12314f 100%);color:white;padding:3rem 2rem 2.5rem;border-bottom:2px solid var(--stem-cyan)}
 .page-hero-inner{max-width:900px;margin:0 auto}
@@ -77,17 +77,35 @@ footer{background:var(--gray-800);color:rgba(255,255,255,0.5);text-align:center;
 footer a{color:rgba(255,255,255,0.65);text-decoration:none}
 footer a:hover{color:white}
 @media(max-width:640px){.container{padding:1.75rem 1rem 3rem}.cards{grid-template-columns:1fr}.page-hero{padding:2.25rem 1.25rem 2rem}}
+
+.nav-menu{display:flex;align-items:center;gap:1.25rem}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:4px;width:34px;height:30px;padding:6px;background:transparent;border:1px solid rgba(46,184,232,0.4);border-radius:6px;cursor:pointer}
+.nav-toggle span{display:block;height:2px;width:100%;background:var(--stem-cyan);border-radius:2px;transition:transform .2s,opacity .2s}
+.navbar.nav-open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navbar.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.navbar.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media(max-width:640px){
+.nav-toggle{display:flex}
+.nav-menu{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:rgba(8,14,26,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(46,184,232,0.25);padding:0.5rem 0;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+.navbar.nav-open .nav-menu{display:flex}
+.nav-menu > a,.nav-menu > .lang-switch{width:100%;padding:0.85rem 1.25rem;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-menu > .lang-switch{border-bottom:none;font-size:13px}
+}
 </style>
 </head>
 <body>
 <nav class="navbar">
 <span style="font-family:'DM Sans',sans-serif;font-weight:700;font-size:15px;color:white;letter-spacing:0.03em;">Marin STEM Navigator</span>
 <div class="navbar-links">
-<a href="index.html" class="nav-label">Home</a>
-<a href="index.html#local" class="nav-label">Local</a>
-<a href="courses.html" class="nav-label">Courses</a>
-<span class="lang-switch nav-label"><span class="lang-active">EN</span> · <a href="es/">ES</a></span>
+<div class="nav-menu" id="nav-menu">
+<a href="index.html#local">Local</a>
+<a href="index.html#national">National</a>
+<a href="courses.html">Courses</a>
+<a href="teachers.html">Teachers</a>
+<span class="lang-switch"><span class="lang-active">EN</span> &middot; <a href="es/">ES</a></span>
+</div>
 <a href="mailto:navigate@marinstemnavigator.org" class="nav-cta" aria-label="Submit a program"><span class="cta-full" aria-hidden="true">Submit a program</span><span class="cta-short" aria-hidden="true">Submit</span></a>
+<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
 </div>
 </nav>
 
@@ -361,6 +379,18 @@ var nameEl=card?card.querySelector(".card-name"):null;
 var label=nameEl?nameEl.textContent.trim():a.hostname;
 track("teacher resource: "+label,label);
 });
+})();
+</script>
+<script>
+// Mobile navigation toggle
+(function(){
+var bar=document.querySelector(".navbar"),btn=document.getElementById("nav-toggle"),menu=document.getElementById("nav-menu");
+if(!bar||!btn||!menu)return;
+function setOpen(open){bar.classList.toggle("nav-open",open);btn.setAttribute("aria-expanded",open?"true":"false");btn.setAttribute("aria-label",open?"Close menu":"Open menu");}
+btn.addEventListener("click",function(e){e.stopPropagation();setOpen(!bar.classList.contains("nav-open"));});
+menu.addEventListener("click",function(e){if(e.target.closest("a"))setOpen(false);});
+document.addEventListener("click",function(e){if(bar.classList.contains("nav-open")&&!bar.contains(e.target))setOpen(false);});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(false);});
 })();
 </script>
 </body>
