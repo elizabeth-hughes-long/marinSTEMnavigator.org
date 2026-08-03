@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0SMYR742X1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-0SMYR742X1');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Service Academy Prep — Marin STEM Navigator</title>
 <meta name="description" content="A student-built guide to U.S. service academy admissions for Marin County youth. USAFA, USNA, West Point, Coast Guard, Merchant Marine. Application timelines, youth service programs, and the pathway nobody tells you about.">
-<link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=2">
+<link rel="canonical" href="https://marinstemnavigator.org/academy-prep.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Marin STEM Navigator">
+<meta property="og:title" content="Service Academy Prep — Marin STEM Navigator">
+<meta property="og:description" content="A student-built guide to the five U.S. service academies: timelines, nominations, and where to start in middle school.">
+<meta property="og:url" content="https://marinstemnavigator.org/academy-prep.html">
+<meta property="og:image" content="https://marinstemnavigator.org/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Service Academy Prep — Marin STEM Navigator">
+<meta name="twitter:description" content="A student-built guide to the five U.S. service academies: timelines, nominations, and where to start in middle school.">
+<meta name="twitter:image" content="https://marinstemnavigator.org/hero.jpg">
+<link rel="icon" type="image/x-icon" href="favicon.ico?v=3">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -33,7 +36,30 @@ a:hover{color:white}
 .navbar-links a:hover{color:var(--stem-cyan)}
 .navbar-links .nav-cta{background:transparent;border:1px solid rgba(46,184,232,0.4);color:var(--stem-cyan);padding:5px 14px;border-radius:20px;font-size:12px;font-weight:500}
 .navbar-links .nav-cta:hover{background:rgba(46,184,232,0.12);border-color:var(--stem-cyan)}
-@media(max-width:640px){.navbar-links .nav-label{display:none}.navbar{padding:0.5rem 1rem}.navbar-links{gap:0.75rem}.navbar-links .nav-cta{font-size:11px;padding:4px 10px}.navbar-links .nav-cta .cta-full{display:none}.navbar-links .nav-cta .cta-short{display:inline}}
+.lang-switch{font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:0.04em}
+.lang-switch a{color:rgba(255,255,255,0.5)}
+.lang-switch .lang-active{color:var(--stem-cyan);font-weight:600}
+.nav-cta .cta-full{display:inline}
+.nav-cta .cta-short{display:none}
+.nav-menu{display:flex;align-items:center;gap:1.25rem}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:4px;width:34px;height:30px;padding:6px;background:transparent;border:1px solid rgba(46,184,232,0.4);border-radius:6px;cursor:pointer}
+.nav-toggle span{display:block;height:2px;width:100%;background:var(--stem-cyan);border-radius:2px;transition:transform .2s,opacity .2s}
+.navbar.nav-open .nav-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.navbar.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.navbar.nav-open .nav-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:3px}
+@media(max-width:640px){
+.navbar{padding:0.5rem 1rem}
+.navbar-links{gap:0.75rem}
+.navbar-links .nav-cta{font-size:11px;padding:4px 10px}
+.nav-cta .cta-full{display:none}
+.nav-cta .cta-short{display:inline}
+.nav-toggle{display:flex}
+.nav-menu{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:rgba(8,14,26,0.98);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(46,184,232,0.25);padding:0.5rem 0;box-shadow:0 8px 24px rgba(0,0,0,0.5)}
+.navbar.nav-open .nav-menu{display:flex}
+.nav-menu > a,.nav-menu > .lang-switch{width:100%;padding:0.85rem 1.25rem;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-menu > .lang-switch{border-bottom:none;font-size:13px}
+}
 
 /* Hero */
 .page-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--navy-deep) 0%,var(--site-bg) 50%,var(--navy-mid) 100%);border-bottom:2px solid var(--gold);padding:4rem 2rem 3.5rem}
@@ -166,10 +192,16 @@ footer a:hover{color:white}
 <nav class="navbar">
 <span class="navbar-brand">Marin STEM Navigator</span>
 <div class="navbar-links">
-<a href="index.html" class="nav-label">Home</a>
-<a href="index.html#local" class="nav-label">Local</a>
-<a href="courses.html" class="nav-label">Courses</a>
-<a href="mailto:navigate@marinstemnavigator.org" class="nav-cta"><span class="cta-full">Submit a program</span><span class="cta-short" style="display:none">Submit</span></a>
+<div class="nav-menu" id="nav-menu">
+<a href="index.html">Home</a>
+<a href="index.html#local">Opportunities</a>
+<a href="courses.html">Courses</a>
+<a href="scholarships.html">Scholarships</a>
+<a href="teachers.html">Teachers</a>
+<span class="lang-switch"><span class="lang-active">EN</span> &middot; <a href="es/">ES</a></span>
+</div>
+<a href="mailto:navigate@marinstemnavigator.org" class="nav-cta" aria-label="Submit a program"><span class="cta-full" aria-hidden="true">Submit a program</span><span class="cta-short" aria-hidden="true">Submit</span></a>
+<button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span><span></span></button>
 </div>
 </nav>
 
@@ -179,7 +211,7 @@ footer a:hover{color:white}
 <a href="index.html" class="back-link">Back to all opportunities</a>
 <span class="hero-eyebrow">Service Academy Prep</span>
 <h1>The pathway <span class="accent">nobody tells you about</span></h1>
-<p class="hero-tagline">A student-built guide to the five U.S. service academies for Marin youth. Admission is free — but it takes years of preparation, a Congressional nomination, and a record of leadership most families don't know how to build. This is the map.</p>
+<p class="hero-tagline">A student-built guide to the five U.S. service academies for Marin youth. Admission is free, but it takes years of preparation, a Congressional nomination, and a record of leadership most families don't know how to build. This is the map.</p>
 <div class="hero-stats">
 <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">U.S. service academies</div></div>
 <div class="hero-stat"><div class="hero-stat-num">~10%</div><div class="hero-stat-label">Typical acceptance rate</div></div>
@@ -192,8 +224,8 @@ footer a:hover{color:white}
 <!-- HONEST INTRO -->
 <div class="intro-callout">
 <div class="intro-card">
-<p><strong>Read this first.</strong> A service academy appointment is a full scholarship worth roughly $500,000, followed by a guaranteed military officer commission. That's why it's one of the most competitive college admissions processes in the United States — harder than Harvard by most measures.</p>
-<p>Admissions are &ldquo;whole-person.&rdquo; Grades and test scores alone don't get you in. What matters is sustained leadership, physical fitness, demonstrated service, and — this part is unique — a nomination from a U.S. Senator, Representative, or the Vice President. If you start in 11th grade, you are already late. This page is for middle schoolers and early high schoolers who want to start now.</p>
+<p><strong>Read this first.</strong> A service academy appointment covers tuition, room, and board, and pays a monthly stipend, followed by a guaranteed commission as a military officer. That combination makes it one of the most demanding college admissions processes in the United States. Not the most selective by acceptance rate, but the only one that also requires a Congressional nomination, a full medical qualification, and a physical fitness test.</p>
+<p>Admissions are &ldquo;whole-person.&rdquo; Grades and test scores alone don't get you in. What matters is sustained leadership, physical fitness, demonstrated service, and a nomination from a U.S. Senator, Representative, or the Vice President. If you start in 11th grade, you are already late. This page is for middle schoolers and early high schoolers who want to start now.</p>
 </div>
 </div>
 
@@ -204,7 +236,7 @@ footer a:hover{color:white}
 <div class="section-header">
 <div class="section-eyebrow">The Five Academies</div>
 <h2 class="section-title">Where you could go</h2>
-<p class="section-sub">Each academy leads to a different branch of the armed forces. Admission processes are similar but each has its own summer preview program and culture. Apply to the Summer Seminar in the summer before your senior year — it's the best way to find out if the academy is right for you, and it starts your admissions file.</p>
+<p class="section-sub">Each academy leads to a different branch of the armed forces. Admission processes are similar but each has its own summer preview program and culture. Apply to the Summer Seminar in the summer before your senior year. It's the best way to find out if the academy is right for you, and it starts your admissions file.</p>
 </div>
 
 <div class="academy-grid">
@@ -218,14 +250,14 @@ footer a:hover{color:white}
 </div>
 <span class="academy-branch branch-afsf">Air Force &middot; Space Force</span>
 </div>
-<p class="academy-desc">Trains officers for the U.S. Air Force and U.S. Space Force. Strong focus on aeronautical, astronautical, and cyber engineering. Campus sits at 7,258 feet elevation — fitness matters.</p>
+<p class="academy-desc">Trains officers for the U.S. Air Force and U.S. Space Force. Strong focus on aeronautical, astronautical, and cyber engineering. Campus sits at 7,258 feet elevation, so fitness matters more here than most people expect.</p>
 <div class="academy-program">
 <div class="program-label">Summer Preview Program</div>
 <div class="program-name">USAFA Summer Seminar &bull; Rising Seniors</div>
-<div class="program-details">Five-day immersion in cadet life. Three sessions run in June 2026. Historically 3,200+ apply and ~640 are selected.</div>
+<div class="program-details">Five-day immersion in cadet life, run across multiple June sessions. Lodging, meals, and uniforms are provided; you arrange your own travel.</div>
 <div class="program-meta">
 <span class="program-tag">Rising seniors only</span>
-<span class="program-tag">~$300 fee</span>
+<span class="program-tag">~$300 + travel</span>
 <span class="program-tag program-tag-open">Applications: Dec 1 &ndash; Jan 15</span>
 </div>
 </div>
@@ -245,11 +277,11 @@ footer a:hover{color:white}
 <div class="academy-program">
 <div class="program-label">Summer Preview Program</div>
 <div class="program-name">Naval Academy Summer Seminar (NASS) &bull; Rising Seniors</div>
-<div class="program-details">Six-day program in June with roughly 800 spots per session across three sessions.</div>
+<div class="program-details">Six-day program in June across three sessions. Worth knowing: the NASS application doubles as your preliminary application to the Naval Academy, so it is two steps in one.</div>
 <div class="program-meta">
 <span class="program-tag">Rising seniors only</span>
-<span class="program-tag">~$450 fee</span>
-<span class="program-tag program-tag-closes">Applications: Jan &ndash; Mar 31</span>
+<span class="program-tag">~$450 (aid available)</span>
+<span class="program-tag program-tag-closes">Applications: Jan 6 &ndash; Mar 31</span>
 </div>
 </div>
 <a class="academy-link" href="https://www.usna.edu/Admissions/" target="_blank" rel="noopener">usna.edu/admissions</a>
@@ -268,10 +300,10 @@ footer a:hover{color:white}
 <div class="academy-program">
 <div class="program-label">Summer Preview Program</div>
 <div class="program-name">Summer Leaders Experience (SLE) &bull; Rising Seniors</div>
-<div class="program-details">Week-long program in June. Around 1,100 spots selected from 6,000+ applicants. Need-based scholarships available.</div>
+<div class="program-details">Week-long program in June with 1,500 slots. There is no application fee, and need-based scholarships cover both the program cost and travel, so do not rule it out on price before you ask.</div>
 <div class="program-meta">
 <span class="program-tag">Rising seniors only</span>
-<span class="program-tag">~$500&ndash;550 fee</span>
+<span class="program-tag">$495 (aid available)</span>
 <span class="program-tag program-tag-closes">Applications: Feb 15 &ndash; Apr 15</span>
 </div>
 </div>
@@ -287,14 +319,14 @@ footer a:hover{color:white}
 </div>
 <span class="academy-branch branch-cg">Coast Guard</span>
 </div>
-<p class="academy-desc">The only service academy that does NOT require a Congressional nomination &mdash; admission is purely merit-based. Trains officers for the U.S. Coast Guard. Strong in marine engineering and naval architecture.</p>
+<p class="academy-desc">The only service academy that does NOT require a Congressional nomination. Admission is purely merit-based. Trains officers for the U.S. Coast Guard. Strong in marine engineering and naval architecture.</p>
 <div class="academy-program">
 <div class="program-label">Summer Preview Program</div>
 <div class="program-name">Academy Introduction Mission (AIM) &bull; Rising Seniors</div>
-<div class="program-details">One-week program in summer. Sea Scouts BSA members receive priority nomination consideration. Virtual option available at no cost.</div>
+<div class="program-details">One-week program in July. Sea Scouts BSA members receive priority nomination consideration. A free virtual option is available, and scholarship assistance has its own separate deadline.</div>
 <div class="program-meta">
 <span class="program-tag">Rising seniors only</span>
-<span class="program-tag">~$750 / Free virtual</span>
+<span class="program-tag">~$750 (aid available)</span>
 <span class="program-tag program-tag-closes">Applications: Feb &ndash; Apr 1</span>
 </div>
 </div>
@@ -310,11 +342,11 @@ footer a:hover{color:white}
 </div>
 <span class="academy-branch branch-mm">Maritime</span>
 </div>
-<p class="academy-desc">The least-known of the five. Graduates commission as Merchant Marine Officers AND reserve officers in the Navy or Coast Guard &mdash; OR can choose active duty in any branch of the armed forces. Uniquely, midshipmen spend a full year at sea during their education.</p>
+<p class="academy-desc">The least-known of the five. Graduates commission as Merchant Marine Officers and as reserve officers in the Navy or Coast Guard, or can choose active duty in any branch. Uniquely, midshipmen spend a full year at sea during their education.</p>
 <div class="academy-program">
 <div class="program-label">No Summer Seminar &mdash; Unique Application</div>
 <div class="program-name">Direct Admission &bull; Year-round application</div>
-<div class="program-details">USMMA doesn't have a summer preview program &mdash; their academic calendar uses trimesters split between land-based study and sea year. Admission is competitive (~32% acceptance rate). Class of 2030 applications closed Feb 1, 2026.</div>
+<div class="program-details">USMMA does not have a summer preview program. Their academic calendar uses trimesters split between land-based study and sea year, so there is no window for one. Admission is competitive and a nomination is still required.</div>
 <div class="program-meta">
 <span class="program-tag">Nomination required</span>
 <span class="program-tag">Year at sea</span>
@@ -332,7 +364,7 @@ footer a:hover{color:white}
 <div class="section-header">
 <div class="section-eyebrow">The Pathway</div>
 <h2 class="section-title">What to do, and when</h2>
-<p class="section-sub">Most successful candidates started preparing in middle school or earlier. Not because they needed to, but because academy admissions reward sustained commitment. Here's the real timeline.</p>
+<p class="section-sub">Most successful candidates started preparing in middle school or earlier. Not because they had to, but because academy admissions reward sustained commitment. Here's the real timeline.</p>
 </div>
 
 <div class="timeline">
@@ -340,43 +372,43 @@ footer a:hover{color:white}
 <div class="timeline-stage">
 <div class="timeline-grade">Middle School &bull; Grades 6&ndash;8</div>
 <div class="timeline-title">Explore, join, get fit</div>
-<div class="timeline-desc">This is the time to <strong>find out if military service actually appeals to you</strong> &mdash; not because a parent thinks it should. Join <strong>Civil Air Patrol</strong>, <strong>Sea Cadets</strong>, or <strong>Sea Scouts</strong> as a cadet-age youth. Take up a competitive sport and stick with it. Start reading about aviation, engineering, or maritime history. Take the hardest math and science classes your school offers. <strong>Apply to USNA Summer STEM or West Point SEI/SEM</strong> &mdash; these are the middle-school-age STEM camps at the academies.</div>
+<div class="timeline-desc">This is the time to <strong>find out whether military service actually appeals to you</strong>, not because a parent thinks it should. Join <strong>Civil Air Patrol</strong>, <strong>Sea Cadets</strong>, or <strong>Sea Scouts</strong> as a cadet-age youth. Take up a competitive sport and stick with it. Take the hardest math and science classes your school offers. <strong>Apply to the Naval Academy and West Point middle school STEM camps</strong>, which are built for exactly this age.</div>
 </div>
 
 <div class="timeline-stage cyan">
 <div class="timeline-grade">9th Grade</div>
 <div class="timeline-title">Build the foundation</div>
-<div class="timeline-desc">Lock in a rigorous schedule: honors/AP math, science, and English. Join <strong>JROTC if your school has it</strong>. Continue CAP or Sea Cadets &mdash; work toward promotions. Start tracking the Candidate Fitness Assessment (CFA) standards: basketball throw, pull-ups, sit-ups, push-ups, shuttle run, one-mile run. Train regularly. If you haven't flown, <strong>sign up for an EAA Young Eagles flight</strong> (it's free).</div>
+<div class="timeline-desc">Lock in a rigorous schedule: honors or AP math, science, and English. Join <strong>JROTC if your school has it</strong>. Continue CAP or Sea Cadets and work toward promotions. Start tracking the Candidate Fitness Assessment standards: basketball throw, pull-ups, sit-ups, push-ups, shuttle run, one-mile run. Train regularly. If you have never flown, <strong>sign up for an EAA Young Eagles flight</strong>, which is free.</div>
 </div>
 
 <div class="timeline-stage purple">
 <div class="timeline-grade">10th Grade</div>
 <div class="timeline-title">Leadership, depth, PSAT</div>
-<div class="timeline-desc">Take on real leadership &mdash; class officer, team captain, club president, CAP NCO rank, ASB. Take the PSAT. Start studying for the SAT or ACT. Keep all grades high &mdash; academies look at 9th grade onward. <strong>Apply for CAP encampment and academic scholarships</strong>. Start thinking about which academies fit your interests (Air Force / Navy / Army / Coast Guard / Maritime).</div>
+<div class="timeline-desc">Take on real leadership: class officer, team captain, club president, CAP NCO rank, ASB. Take the PSAT. Start studying for the SAT or ACT. Keep all grades high, because academies look at 9th grade onward. <strong>Apply for CAP encampment and academic scholarships</strong>. Start thinking about which academies fit your interests.</div>
 </div>
 
 <div class="timeline-stage">
 <div class="timeline-grade">11th Grade &bull; Junior Year</div>
 <div class="timeline-title">The year everything happens</div>
-<div class="timeline-desc">Take the SAT and/or ACT and aim to retake. <strong>Apply to every Summer Seminar you're interested in</strong> (USAFA in December, USNA in January, West Point in February, Coast Guard AIM in February). Apply to <strong>USAF Aim High Flight Academy</strong> (rising juniors/seniors, 15 free flight hours). Contact your U.S. Senators' and Representative's offices in the spring to learn their <strong>Congressional nomination</strong> timelines &mdash; most require applications in the fall of senior year, so you prepare materials starting junior spring.</div>
+<div class="timeline-desc">Take the SAT or ACT and plan to retake it. <strong>Apply to every Summer Seminar you're interested in</strong>: USAFA opens December 1, the Naval Academy in January, West Point February 15, Coast Guard AIM in February. Apply to <strong>Aim High Flight Academy</strong>, whose window is short and falls in spring. Contact your two U.S. Senators' offices and your Representative's office in the spring to learn their <strong>Congressional nomination</strong> timelines, because most require applications in the fall of senior year and you want the materials ready.</div>
 </div>
 
 <div class="timeline-stage cyan">
 <div class="timeline-grade">Summer Before 12th Grade</div>
 <div class="timeline-title">Attend Summer Seminars, open applications</div>
-<div class="timeline-desc">Attend any Summer Seminars you were accepted to. Academy applications <strong>open in June/July for the class entering the following summer</strong>. Start the Pre-Candidate Questionnaire. Take the CFA at a Summer Seminar or arrange it with a teacher/coach. If you weren't selected for Summer Seminar, apply anyway &mdash; it is not a prerequisite and does not predict admission.</div>
+<div class="timeline-desc">Attend any Summer Seminars you were accepted to. Academy applications <strong>open in June or July for the class entering the following summer</strong>. Start the Pre-Candidate Questionnaire. Take the CFA at a Summer Seminar or arrange it with a teacher or coach. If you were not selected for a Summer Seminar, apply to the academy anyway. It is not a prerequisite and it does not predict admission.</div>
 </div>
 
 <div class="timeline-stage purple">
 <div class="timeline-grade">Fall of 12th Grade &bull; Senior Year</div>
 <div class="timeline-title">Nominations, applications, interviews</div>
-<div class="timeline-desc">Submit <strong>Congressional nomination applications</strong> &mdash; typically due October or November. Each Senator and your Representative can nominate separately; you can and should apply to ALL of them. Complete academy applications. Take final SAT/ACT. Complete DoDMERB medical exam. Interview with Academy Liaison Officers (Blue & Gold Officers for USNA, Field Force Reps for USAFA). <strong>Nominations are typically announced in December or January.</strong></div>
+<div class="timeline-desc">Submit <strong>Congressional nomination applications</strong>, typically due October or November. Each Senator and your Representative nominate separately, and you can and should apply to all of them. Complete academy applications. Take your final SAT or ACT. Complete the DoDMERB medical exam. Interview with Academy Liaison Officers, called Blue and Gold Officers at the Naval Academy and Field Force Representatives at USAFA. <strong>Nominations are typically announced in December or January.</strong></div>
 </div>
 
 <div class="timeline-stage">
 <div class="timeline-grade">Spring of 12th Grade</div>
 <div class="timeline-title">Appointments arrive</div>
-<div class="timeline-desc">Academies send appointments on a rolling basis from December through April. If you receive an appointment, you'll be asked to formally accept. Report to the academy in late June or early July for Basic Training (&ldquo;Beast Barracks&rdquo; at West Point, &ldquo;Plebe Summer&rdquo; at USNA, &ldquo;Basic Cadet Training&rdquo; at USAFA). <strong>Welcome. Your five-year service obligation begins now.</strong></div>
+<div class="timeline-desc">Academies send appointments on a rolling basis from December through April. If you receive one, you will be asked to formally accept. Report to the academy in late June or early July for basic training: &ldquo;Beast Barracks&rdquo; at West Point, &ldquo;Plebe Summer&rdquo; at the Naval Academy, &ldquo;Basic Cadet Training&rdquo; at USAFA. <strong>Your service obligation begins now.</strong></div>
 </div>
 
 </div>
@@ -387,39 +419,39 @@ footer a:hover{color:white}
 <div class="section-header">
 <div class="section-eyebrow">The Nomination</div>
 <h2 class="section-title">How to get nominated</h2>
-<p class="section-sub">Except for the Coast Guard Academy, every service academy appointment requires a nomination from a U.S. Senator, your U.S. Representative, or the Vice President. You apply to each separately, and applying to all three is strongly encouraged. California nominations are competitive; start early and treat each application like a college application of its own.</p>
+<p class="section-sub">Except for the Coast Guard Academy, every service academy appointment requires a nomination from a U.S. Senator, your U.S. Representative, or the Vice President. You apply to each separately, and applying to all three is strongly encouraged. California nominations are competitive. Start early and treat each application like a college application of its own.</p>
 </div>
 
 <div class="nomination">
 <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:white;margin-bottom:0.5rem">Your California nomination sources</h3>
-<p style="font-size:0.92rem;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:0.5rem">As a Marin County resident, these are the three offices that can nominate you. Each office has its own application form, deadline, essay prompts, and interview process.</p>
+<p style="font-size:0.92rem;color:rgba(255,255,255,0.7);line-height:1.65;margin-bottom:0.5rem">As a Marin County resident, these are the three offices that can nominate you. Each has its own application form, deadline, essay prompts, and interview process. Confirm current officeholders and deadlines directly, since they change.</p>
 <div class="nom-grid">
 <div class="nom-card">
 <div class="nom-label">Senior Senator</div>
 <div class="nom-name">U.S. Senator (California)</div>
-<div class="nom-action">Contact your senior Senator's Service Academy Nomination office. Typical deadline: early fall of senior year.</div>
+<div class="nom-action">Contact the Service Academy Nomination staff in your senior Senator's office. Deadlines typically fall in early autumn of senior year.</div>
 <a class="nom-link" href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener">Find your Senator &rarr;</a>
 </div>
 <div class="nom-card">
 <div class="nom-label">Junior Senator</div>
 <div class="nom-name">U.S. Senator (California)</div>
-<div class="nom-action">Apply to the junior Senator's office separately. Each Senator has independent selection criteria.</div>
+<div class="nom-action">Apply to the junior Senator's office separately. Each Senator sets independent selection criteria.</div>
 <a class="nom-link" href="https://www.senate.gov/senators/senators-contact.htm" target="_blank" rel="noopener">Find your Senator &rarr;</a>
 </div>
 <div class="nom-card">
 <div class="nom-label">U.S. Representative</div>
 <div class="nom-name">House Member for your district</div>
-<div class="nom-action">Marin County is currently in California's 2nd Congressional District. Contact your Representative's office in the spring of junior year.</div>
+<div class="nom-action">Marin County sits in California's 2nd Congressional District. Contact your Representative's office in the spring of junior year.</div>
 <a class="nom-link" href="https://www.house.gov/representatives/find-your-representative" target="_blank" rel="noopener">Find your Representative &rarr;</a>
 </div>
 </div>
 <div style="margin-top:1.25rem;padding:0.9rem 1.1rem;background:rgba(46,184,232,0.08);border-radius:var(--radius-sm);font-size:12.5px;color:rgba(255,255,255,0.8);line-height:1.6">
-<strong style="color:var(--stem-cyan)">Important:</strong> The Coast Guard Academy does NOT require a nomination &mdash; it's the only academy with purely merit-based admission. The Merchant Marine Academy requires a nomination but does NOT accept Vice-Presidential nominations.
+<strong style="color:var(--stem-cyan)">Important:</strong> The Coast Guard Academy does NOT require a nomination. It is the only academy with purely merit-based admission. The other four all do.
 </div>
 </div>
 
 <div class="fitness-note">
-<strong>The CFA: don't underestimate it.</strong> The Candidate Fitness Assessment (CFA) is required by every academy except the Coast Guard Academy, which uses the Physical Fitness Examination (PFE). It includes a basketball throw, pull-ups, a 40-ft shuttle run, sit-ups, push-ups, and a 1-mile run &mdash; all in the same session, in that order, with short rest between. Train for it specifically. Many strong academic candidates fail to get nominated because they underprepared the physical side.
+<strong>The CFA: don't underestimate it.</strong> The Candidate Fitness Assessment is required by every academy except the Coast Guard Academy, which uses its own Physical Fitness Examination. It includes a basketball throw, pull-ups, a 40-foot shuttle run, sit-ups, push-ups, and a one-mile run, all in the same session, in that order, with short rest between. Train for it specifically. Strong academic candidates fall short here more often than you would think.
 </div>
 </section>
 
@@ -428,7 +460,7 @@ footer a:hover{color:white}
 <div class="section-header">
 <div class="section-eyebrow">Youth Service Programs</div>
 <h2 class="section-title">Where to start before high school</h2>
-<p class="section-sub">The single best predictor of academy admission is sustained participation in one of these programs from middle school onward. They teach leadership, drill, service, and the culture of the armed forces &mdash; and they cost almost nothing. Every one of these programs has a presence in the Bay Area.</p>
+<p class="section-sub">Sustained participation in one of these from middle school onward builds exactly the record academies look for: leadership, drill, service, and familiarity with the culture. They cost almost nothing, and every one has a presence in the Bay Area.</p>
 </div>
 
 <div class="youth-grid">
@@ -436,32 +468,32 @@ footer a:hover{color:white}
 <div class="youth-card">
 <div class="youth-name">Civil Air Patrol Cadet Program</div>
 <div class="youth-tag">Air Force Auxiliary &bull; Ages 12+</div>
-<div class="youth-desc">The official auxiliary of the U.S. Air Force. Cadets learn aerospace science, earn flight scholarships, attend encampments, and can progress through 16 ranks. Active squadron at Gnoss Field, Novato.</div>
-<div class="youth-note">Direct pipeline to Air Force Academy nominations and USAFA Summer Seminar priority consideration.</div>
+<div class="youth-desc">The official auxiliary of the U.S. Air Force, and a civilian youth organization focused on aerospace education, STEM, and community service. Cadets earn flight scholarships, attend encampments, and progress through a rank structure. Active squadron at Gnoss Field, Novato.</div>
+<div class="youth-note">Cadets have access to flight scholarships and encampment leadership experience that are hard to get any other way.</div>
 <a class="youth-link" href="https://www.gocivilairpatrol.com" target="_blank" rel="noopener">gocivilairpatrol.com</a>
 </div>
 
 <div class="youth-card">
-<div class="youth-name">U.S. Naval Sea Cadet Corps (USNSCC)</div>
-<div class="youth-tag">Navy &bull; Ages 10&ndash;17</div>
-<div class="youth-desc">Navy-sponsored uniformed youth program with tracks in cybersecurity, engineering, navigation, SEAL training, and submarine operations. Annual two-week training at Navy bases.</div>
-<div class="youth-note">Strong preparation for USNA and USCGA admissions; participants often compete successfully for Navy ROTC scholarships.</div>
+<div class="youth-name">U.S. Naval Sea Cadet Corps</div>
+<div class="youth-tag">Navy &bull; Ages 10&ndash;18</div>
+<div class="youth-desc">Navy-sponsored uniformed youth program with tracks in cybersecurity, engineering, navigation, and seamanship. Two tracks: Navy League Cadet Corps for middle school, Naval Sea Cadet Corps for high school. Annual training at Navy bases. Dues and uniform costs apply.</div>
+<div class="youth-note">Sea Cadet teams also get CyberPatriot registration fees waived automatically.</div>
 <a class="youth-link" href="https://www.seacadets.org" target="_blank" rel="noopener">seacadets.org</a>
 </div>
 
 <div class="youth-card">
 <div class="youth-name">Sea Scouts BSA</div>
 <div class="youth-tag">Coast Guard Auxiliary &bull; Ages 14&ndash;20</div>
-<div class="youth-desc">Coed Scouts program focused on seamanship, navigation, and maritime leadership. Members operate real sailboats and motorboats. Directly connected to the U.S. Coast Guard Auxiliary.</div>
-<div class="youth-note">Sea Scouts members receive priority consideration for Coast Guard Academy AIM program nomination.</div>
+<div class="youth-desc">Coed Scouts program focused on seamanship, navigation, and maritime leadership. Members operate real sailboats and motorboats. Partnered with the U.S. Coast Guard Auxiliary.</div>
+<div class="youth-note">Sea Scouts members receive priority consideration for the Coast Guard Academy AIM program.</div>
 <a class="youth-link" href="https://seascout.org" target="_blank" rel="noopener">seascout.org</a>
 </div>
 
 <div class="youth-card">
 <div class="youth-name">JROTC</div>
 <div class="youth-tag">School-based &bull; Grades 9&ndash;12</div>
-<div class="youth-desc">Junior Reserve Officers' Training Corps. School-based elective program offered in Army, Navy, Air Force, Marines, and Coast Guard versions. NOT a military commitment. Check whether your high school or a nearby one has a unit.</div>
-<div class="youth-note">A consistent JROTC record with leadership rank (cadet officer) is a major signal on academy applications.</div>
+<div class="youth-desc">Junior Reserve Officers' Training Corps. A school elective offered in Army, Navy, Air Force, Marine, and Coast Guard versions, with no military commitment attached. Only available if your school or a nearby one hosts a unit, so check first.</div>
+<div class="youth-note">Builds sustained leadership responsibility across several years, which counts for more than any one-off activity.</div>
 <a class="youth-link" href="https://www.todaysmilitary.com/ways-to-serve/jrotc" target="_blank" rel="noopener">todaysmilitary.com/jrotc</a>
 </div>
 
@@ -469,15 +501,15 @@ footer a:hover{color:white}
 <div class="youth-name">Young Marines</div>
 <div class="youth-tag">Marine Corps-affiliated &bull; Ages 8&ndash;18</div>
 <div class="youth-desc">National youth leadership program emphasizing drill, physical fitness, community service, and drug-free living. Bay Area chapters run regular training and field exercises.</div>
-<div class="youth-note">Strong for students drawn to Marine Corps culture; supports USNA pathway (since Marines commission through USNA).</div>
+<div class="youth-note">A fit for students drawn to Marine Corps culture, since Marine officers commission through the Naval Academy.</div>
 <a class="youth-link" href="https://www.youngmarines.org" target="_blank" rel="noopener">youngmarines.org</a>
 </div>
 
 <div class="youth-card">
 <div class="youth-name">Aim High Flight Academy</div>
 <div class="youth-tag">USAF &bull; High school students</div>
-<div class="youth-desc">Three-week residential flight program fully funded by the U.S. Air Force. Participants earn up to 15 actual flight hours. Students live on site; all costs covered.</div>
-<div class="youth-note">One of the single most valuable free opportunities for aspiring Air Force Academy applicants. Applications typically open in fall.</div>
+<div class="youth-desc">Three-week residential flight program fully funded by the U.S. Air Force. Participants earn up to 15 actual flight hours, roughly a quarter of what a private pilot certificate requires. You need to be at least 16 over the summer.</div>
+<div class="youth-note">One of the most valuable free opportunities on this page. The application window is short and falls in spring, so watch for it.</div>
 <a class="youth-link" href="https://www.recruiting.af.mil/Aim-High-Flight-Academy/" target="_blank" rel="noopener">recruiting.af.mil/aim-high</a>
 </div>
 
@@ -487,7 +519,7 @@ footer a:hover{color:white}
 <!-- BROAD ACCESS CTA -->
 <section class="cta-section">
 <h2>Not sure which academy is right for you?</h2>
-<p>That's exactly why Summer Seminars exist. Apply to all the ones you're interested in during your junior year. Attending one doesn't commit you, and not attending doesn't hurt your chances. What matters is that you start exploring years before senior year &mdash; so you arrive at the application process prepared rather than rushed.</p>
+<p>That is exactly why Summer Seminars exist. Apply to all the ones you're interested in during junior year. Attending one does not commit you, and not attending does not hurt your chances. What matters is starting years before senior year, so you arrive at the application prepared rather than rushed.</p>
 <a class="cta-btn" href="index.html#national">See all national programs &rarr;</a>
 </section>
 
@@ -498,17 +530,52 @@ footer a:hover{color:white}
 <div class="about-inner">
 <div class="about-avatar">E</div>
 <h2>Why this page exists</h2>
-<p>Hi &mdash; I'm Elizabeth, the 8th grader in San Rafael who built this site. I'm a cadet in Civil Air Patrol and I'm working toward a service academy appointment myself.</p>
-<p>I built this page because when I started researching the pathway, the information was scattered across a dozen websites, most of it was out of date, and none of it was aimed at someone my age. If you're in middle school or early high school and considering a service academy, I wanted you to have a clear place to start. If you find a program missing or an error in the information above, please email me: <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
+<p>Hi, I'm Elizabeth, the 8th grader in San Rafael who built this site. I'm a cadet in Civil Air Patrol and I'm working toward a service academy appointment myself.</p>
+<p>I built this page because when I started researching the pathway, the information was scattered across a dozen websites, most of it was out of date, and none of it was aimed at someone my age. If you're in middle school or early high school and considering a service academy, I wanted you to have a clear place to start. Requirements and deadlines change every year, so confirm anything here against the academy's own site before you act on it. If you find a program missing or an error above, email me: <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
 </div>
 </section>
 
 <footer>
-<p>marinSTEMnavigator.org &nbsp;|&nbsp; Built by a Marin student &nbsp;|&nbsp; Updated April 2026 &nbsp;|&nbsp; <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
-<p>Not affiliated with any listed organization or U.S. government agency. All information verified against official sources as of April 2026.</p>
+<p>marinSTEMnavigator.org &nbsp;|&nbsp; Built by a Marin student &nbsp;|&nbsp; Updated August 2026 &nbsp;|&nbsp; <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
+<p>Not affiliated with any listed organization or U.S. government agency. &nbsp;|&nbsp; <a href="index.html">Opportunities</a> &nbsp;|&nbsp; <a href="scholarships.html">Scholarships</a> &nbsp;|&nbsp; <a href="teachers.html">For teachers</a> &nbsp;|&nbsp; <a href="es/">Versión en español</a></p>
 </footer>
 
+<script>
+// Mobile navigation toggle
+(function(){
+var bar=document.querySelector(".navbar"),btn=document.getElementById("nav-toggle"),menu=document.getElementById("nav-menu");
+if(!bar||!btn||!menu)return;
+function setOpen(open){bar.classList.toggle("nav-open",open);btn.setAttribute("aria-expanded",open?"true":"false");btn.setAttribute("aria-label",open?"Close menu":"Open menu");}
+btn.addEventListener("click",function(e){e.stopPropagation();setOpen(!bar.classList.contains("nav-open"));});
+menu.addEventListener("click",function(e){if(e.target.closest("a"))setOpen(false);});
+document.addEventListener("click",function(e){if(bar.classList.contains("nav-open")&&!bar.contains(e.target))setOpen(false);});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(false);});
+})();
+</script>
 <!-- GoatCounter analytics - privacy-respecting, no cookies -->
 <script data-goatcounter="https://marinstemnav.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+// Outbound click tracking for GoatCounter.
+(function(){
+function track(path,title){
+if(window.goatcounter&&window.goatcounter.count){
+window.goatcounter.count({path:path,title:title,event:true});
+}
+}
+document.addEventListener("click",function(e){
+var t=e.target;
+if(!t||!t.closest)return;
+var a=t.closest("a[href]");
+if(!a)return;
+var href=a.getAttribute("href")||"";
+if(href.indexOf("mailto:")===0){track("contact: email (academy prep)","Email contact");return;}
+if(!a.hostname||a.hostname===location.hostname)return;
+var card=a.closest(".academy-card, .youth-card, .nom-card");
+var nameEl=card?card.querySelector(".academy-name, .youth-name, .nom-name"):null;
+var label=nameEl?nameEl.textContent.trim():a.hostname;
+track("academy prep: "+label,label);
+});
+})();
+</script>
 </body>
 </html>
