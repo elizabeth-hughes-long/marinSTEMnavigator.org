@@ -200,6 +200,20 @@ footer a:hover{color:white}
 .nav-menu > a,.nav-menu > .lang-switch{width:100%;padding:0.85rem 1.25rem;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .nav-menu > .lang-switch{border-bottom:none;font-size:13px}
 }
+
+/* Footer feedback widget */
+.msn-feedback{margin:1.25rem auto 0;max-width:34rem;text-align:left;font-family:'DM Sans',sans-serif}
+.msn-fb-open{background:none;border:0;padding:0;font-family:'DM Sans',sans-serif;font-size:13px;color:rgba(255,255,255,0.7);cursor:pointer;text-align:left}
+.msn-fb-open:hover{color:var(--stem-cyan);text-decoration:underline}
+.msn-fb-panel{margin-top:.75rem}
+.msn-fb-panel label{display:block;font-size:12.5px;margin-bottom:.35rem;color:rgba(255,255,255,0.75)}
+.msn-fb-panel textarea{width:100%;padding:.6rem;font-family:'DM Sans',sans-serif;font-size:13px;line-height:1.5;border:1px solid rgba(255,255,255,.25);border-radius:var(--radius-sm);background:rgba(255,255,255,.07);color:white}
+.msn-fb-panel textarea:focus{outline:2px solid var(--gold);outline-offset:2px}
+.msn-fb-note{font-size:11px;color:rgba(255,255,255,0.45);margin:.4rem 0 .6rem;line-height:1.5}
+.msn-fb-send{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:.45rem 1.1rem;border:0;border-radius:var(--radius-sm);background:var(--stem-cyan);color:var(--navy);cursor:pointer}
+.msn-fb-send[disabled]{opacity:.5;cursor:default}
+.msn-fb-status{font-size:12px;margin-left:.6rem;color:rgba(255,255,255,0.7)}
+.msn-fb-thanks{font-size:13px;color:rgba(255,255,255,0.75)}
 </style>
 </head>
 <body>
@@ -323,8 +337,19 @@ Support with $1
 </section>
 
 <footer>
-<p>marinSTEMnavigator.org &nbsp;|&nbsp; Built by a Marin student &nbsp;|&nbsp; Updated July 2026 &nbsp;|&nbsp; <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
+<p>marinSTEMnavigator.org &nbsp;|&nbsp; Built by a Marin student &nbsp;|&nbsp; Updated August 2026 &nbsp;|&nbsp; <a href="mailto:navigate@marinstemnavigator.org">navigate@marinstemnavigator.org</a></p>
 <p>Not affiliated with any listed organization. &nbsp;|&nbsp; <a href="scholarships.html">Scholarships</a> &nbsp;|&nbsp; <a href="teachers.html">For teachers</a> &nbsp;|&nbsp; <a href="es/">Versión en español</a></p>
+
+<div class="msn-feedback">
+<button type="button" class="msn-fb-open">Found something useful? Let us know &rarr;</button>
+<div class="msn-fb-panel" hidden>
+<label for="msn-fb-text">What did you find, or what&rsquo;s missing?</label>
+<textarea id="msn-fb-text" rows="4"></textarea>
+<p class="msn-fb-note">Please don&rsquo;t include your name, school, or email address.</p>
+<button type="button" class="msn-fb-send">Send</button>
+<span class="msn-fb-status" role="status"></span>
+</div>
+</div>
 </footer>
 <script src="data.js"></script>
 <script>
@@ -412,6 +437,36 @@ btn.addEventListener("click",function(e){e.stopPropagation();setOpen(!bar.classL
 menu.addEventListener("click",function(e){if(e.target.closest("a"))setOpen(false);});
 document.addEventListener("click",function(e){if(bar.classList.contains("nav-open")&&!bar.contains(e.target))setOpen(false);});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(false);});
+})();
+</script>
+<script>
+// Footer feedback widget. Posts to Formspree, no page reload, no redirect.
+(function(){
+var FORMSPREE="https://formspree.io/f/mjybkrkb";
+var wrap=document.querySelector(".msn-feedback");
+if(!wrap)return;
+var open=wrap.querySelector(".msn-fb-open"),
+panel=wrap.querySelector(".msn-fb-panel"),
+text=wrap.querySelector("#msn-fb-text"),
+send=wrap.querySelector(".msn-fb-send"),
+status=wrap.querySelector(".msn-fb-status");
+open.addEventListener("click",function(){panel.hidden=false;open.hidden=true;text.focus();});
+send.addEventListener("click",function(){
+var msg=text.value.trim();
+if(!msg){text.focus();return;}
+send.disabled=true;
+status.textContent="Sending...";
+fetch(FORMSPREE,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({message:msg,page:location.pathname})})
+.then(function(r){
+if(!r.ok)throw new Error("bad response");
+panel.innerHTML='<p class="msn-fb-thanks">Thanks.</p>';
+if(window.goatcounter&&window.goatcounter.count){window.goatcounter.count({path:"feedback-sent",title:"Feedback sent",event:true});}
+})
+.catch(function(){
+send.disabled=false;
+status.textContent="Did not send. Email navigate@marinSTEMnavigator.org instead.";
+});
+});
 })();
 </script>
 </body>
