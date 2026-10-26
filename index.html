@@ -227,6 +227,73 @@ footer a:hover{color:white}
 .msn-fb-send[disabled]{opacity:.5;cursor:default}
 .msn-fb-status{display:block;font-size:12px;margin-top:.5rem;color:rgba(255,255,255,0.7)}
 .msn-fb-thanks{font-size:13px;color:rgba(255,255,255,0.75)}
+
+/* ---- Add to Calendar add-on (only affects new .msn-calendar-* elements) ---- */
+.msn-calendar-menu {
+  margin-top: 4px;
+  border: 1px solid rgba(46, 184, 232, .45);
+  border-radius: 8px;
+  background: #f4fbfe;
+  color: #0d1829;
+}
+.msn-calendar-menu > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 9px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0b4660;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.msn-calendar-menu > summary::-webkit-details-marker { display: none; }
+.msn-calendar-menu > summary::after { content: "▾"; font-size: 15px; }
+.msn-calendar-menu[open] > summary::after { content: "▴"; }
+.msn-calendar-menu > summary:focus-visible,
+.msn-calendar-menu a:focus-visible,
+.msn-calendar-menu button:focus-visible {
+  outline: 2px solid #e8a020;
+  outline-offset: 2px;
+}
+.msn-calendar-details {
+  padding: 0 12px 9px;
+  color: #42566c;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.msn-calendar-actions {
+  border-top: 1px solid #d5ecf3;
+  padding: 8px;
+  display: grid;
+  gap: 6px;
+}
+.msn-calendar-actions a, .msn-calendar-actions button {
+  display: block;
+  width: 100%;
+  padding: 9px 11px;
+  text-align: left;
+  color: #0b4660;
+  background: white;
+  border: 1px solid #c5dce8;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.msn-calendar-actions a:hover, .msn-calendar-actions button:hover {
+  background: #e3f6fd;
+  border-color: #2eb8e8;
+}
+.msn-calendar-note {
+  font-size: 10px;
+  color: #65758a;
+  line-height: 1.4;
+}
+/* ---- End calendar add-on ---- */
 </style>
 </head>
 <body>
@@ -365,6 +432,8 @@ Support with $1
 </div>
 </footer>
 <script src="data.js"></script>
+<!-- Calendar add-on must load before the page script calls it. -->
+<script src="calendar.js"></script>
 <script>
 // Listings come from data.js so the English and Spanish pages never drift apart.
 const OPPORTUNITIES=(typeof MSN_DATA!=="undefined")?MSN_DATA.map(o=>Object.assign({},o,{desc:o.desc_en})):[];
@@ -409,7 +478,10 @@ html+='<div class="cards">'+items.map(cardHTML).join("")+'</div></div>'}
 const total=items.length;
 const filtered=activeCat!=="all"||activeAge!=="all"||document.getElementById("search").value.trim()!=="";
 document.getElementById("result-count").innerHTML=(total>0?'<span>Showing <strong>'+total+'</strong> opportunit'+(total===1?"y":"ies")+'</span>':'<span></span>')+'<button type="button" class="clear-filters" onclick="clearFilters()"'+(filtered?"":" hidden")+'>Clear filters</button>';
-out.innerHTML=html||'<div class="empty"><div class="empty-icon" aria-hidden="true">&#x2315;</div><h2>No results found</h2><p>Try a shorter search term, or clear your filters.</p></div>'}
+out.innerHTML=html||'<div class="empty"><div class="empty-icon" aria-hidden="true">&#x2315;</div><h2>No results found</h2><p>Try a shorter search term, or clear your filters.</p></div>';
+// Calendar add-on: attach buttons after the original cards are rendered.
+if(window.MSNCalendar){window.MSNCalendar.addButtons(items)}
+}
 if(!OPPORTUNITIES.length){document.getElementById("output").innerHTML='<div class="empty"><h2>Listings could not load</h2><p>Please refresh the page. If this keeps happening, email navigate@marinSTEMnavigator.org.</p></div>';}
 render();
 </script>
@@ -427,6 +499,20 @@ window.goatcounter.count({path:path,title:title,event:true});
 document.addEventListener("click",function(e){
 var t=e.target;
 if(!t||!t.closest)return;
+// Calendar actions are NOT program website visits. Track them first.
+// These count clicks to add/export, not completed saves in the calendar app.
+var calendarAction=t.closest("[data-calendar-action]");
+if(calendarAction){
+var calendarCard=calendarAction.closest(".card, .national-card");
+var calendarName=calendarCard?calendarCard.querySelector(".card-name, .national-card-name"):null;
+var calendarLabel=calendarName?calendarName.textContent.trim():"Unknown program";
+var provider=calendarAction.getAttribute("data-calendar-action");
+if(provider==="google"||provider==="ics"){
+track("calendar: "+provider+": "+calendarLabel,
+      "Calendar "+(provider==="google"?"Google":"Apple/Outlook")+": "+calendarLabel);
+return; // Don't also count as a program click.
+}
+}
 var a=t.closest("a[href]");
 if(!a)return;
 var href=a.getAttribute("href")||"";
